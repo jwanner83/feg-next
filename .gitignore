@@ -56,6 +56,7 @@ macOS .DS_Store files
 
 # pnpm
 .pnpm-debug.log
+pnpm-lock.yaml
 
 # Frontity
 build

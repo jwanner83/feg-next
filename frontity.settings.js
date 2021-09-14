@@ -2,9 +2,9 @@ const settings = {
   "name": "feg-gossau",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.org",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+      "url": "https://feg-gossau.ch",
+      "title": "FEG Gossau",
+      "description": "Freie Evangelische Gemeinde in Gossau"
     }
   },
   "packages": [
@@ -18,26 +18,18 @@ const settings = {
               "/"
             ],
             [
-              "Nature",
-              "/category/nature/"
+              "Agenda",
+              "/agenda"
             ],
             [
-              "Travel",
-              "/category/travel/"
+              "Predigten",
+              "/predigten"
             ],
             [
-              "Japan",
-              "/tag/japan/"
-            ],
-            [
-              "About Us",
-              "/about-us/"
+              "News",
+              "/news/"
             ]
-          ],
-          "featured": {
-            "showOnList": false,
-            "showOnPost": false
-          }
+          ]
         }
       }
     },
@@ -45,7 +37,19 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "https://feg-gossau.ch",
+          postTypes: [
+            {
+              type: "predigten",
+              endpoint: "predigten",
+              archive: "/predigten"
+            },
+            {
+              type: "news",
+              endpoint: "news",
+              archive: "/news"
+            }
+          ],
         }
       }
     },
