@@ -1,80 +1,205 @@
-# feg-gossau
+# A statically generated blog example using Next.js and WordPress
 
-This project was bootstrapped with [Frontity](https://frontity.org/).
+This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using [WordPress](https://wordpress.org) as the data source.
 
-#### Table of Contents
+## Demo
 
-- [Launch a development server](#launch-a-development-server)
-- [Create your custom theme](#create-your-custom-theme)
-- [Create a production-ready build](#create-a-production-ready-build)
-- [Deploy](#deploy)
+### [https://next-blog-wordpress.vercel.app](https://next-blog-wordpress.vercel.app)
 
-### Launch a development server
+## Deploy your own
+
+Once you have access to [the environment variables you'll need](#step-3-set-up-environment-variables), deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress&project-name=cms-wordpress&repository-name=cms-wordpress&env=WORDPRESS_API_URL&envDescription=Required%20to%20connect%20the%20app%20with%20WordPress&envLink=https://vercel.link/cms-wordpress-env)
+
+### Related examples
+
+- [DatoCMS](/examples/cms-datocms)
+- [Sanity](/examples/cms-sanity)
+- [TakeShape](/examples/cms-takeshape)
+- [Prismic](/examples/cms-prismic)
+- [Contentful](/examples/cms-contentful)
+- [Strapi](/examples/cms-strapi)
+- [Agility CMS](/examples/cms-agilitycms)
+- [Cosmic](/examples/cms-cosmic)
+- [ButterCMS](/examples/cms-buttercms)
+- [Storyblok](/examples/cms-storyblok)
+- [GraphCMS](/examples/cms-graphcms)
+- [Kontent](/examples/cms-kontent)
+- [Ghost](/examples/cms-ghost)
+- [Blog Starter](/examples/blog-starter)
+
+## How to use
+
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+
+```bash
+npx create-next-app --example cms-wordpress cms-wordpress-app
+# or
+yarn create next-app --example cms-wordpress cms-wordpress-app
+```
+
+## Configuration
+
+### Step 1. Prepare your WordPress site
+
+First, you need a WordPress site. There are many solutions for WordPress hosting, such as [WP Engine](https://wpengine.com/) and [WordPress.com](https://wordpress.com/).
+
+Once the site is ready, you'll need to install the [WPGraphQL](https://www.wpgraphql.com/) plugin. It will add GraphQL API to your WordPress site, which we'll use to query the posts. Follow these steps to install it:
+
+- Download the [WPGraphQL repo](https://github.com/wp-graphql/wp-graphql) as a ZIP archive.
+- Inside your WordPress admin, go to **Plugins** and then click **Add New**.
+
+![Add new plugin](./docs/plugins-add-new.png)
+
+- Click the **Upload Plugin** button at the top of the page and upload the WPGraphQL plugin.
+
+![Upload new plugin](./docs/plugins-upload-new.png)
+
+- Once the plugin has been added, activate it from either the **Activate Plugin** button displayed after uploading or from the **Plugins** page.
+
+![WPGraphQL installed](./docs/plugin-installed.png)
+
+#### GraphiQL
+
+The [WPGraphQL](https://www.wpgraphql.com/) plugin also gives you access to a GraphQL IDE directly from your WordPress Admin, allowing you to inspect and play around with the GraphQL API.
+
+![WPGraphiQL page](./docs/wp-graphiql.png)
+
+### Step 2. Populate Content
+
+Inside your WordPress admin, go to **Posts** and start adding new posts:
+
+- We recommend creating at least **2 posts**
+- Use dummy data for the content
+- Pick an author from your WordPress users
+- Add a **Featured Image**. You can download one from [Unsplash](https://unsplash.com/)
+- Fill the **Excerpt** field
+
+![New post](./docs/new-post.png)
+
+When you’re done, make sure to **Publish** the posts.
+
+> **Note:** Only **published** posts and public fields will be rendered by the app unless [Preview Mode](https://nextjs.org/docs/advanced-features/preview-mode) is enabled.
+
+### Step 3. Set up environment variables
+
+Copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
+
+```bash
+cp .env.local.example .env.local
+```
+
+Then open `.env.local` and set `WORDPRESS_API_URL` to be the URL to your GraphQL endpoint in WordPress. For example: `https://myapp.wpengine.com/graphql`.
+
+Your `.env.local` file should look like this:
+
+```bash
+WORDPRESS_API_URL=...
+
+# Only required if you want to enable preview mode
+# WORDPRESS_AUTH_REFRESH_TOKEN=
+# WORDPRESS_PREVIEW_SECRET=
+```
+
+### Step 4. Run Next.js in development mode
+
+```bash
+npm install
+npm run dev
+
+# or
+
+yarn install
+yarn dev
+```
+
+Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+
+### Step 5. Add authentication for Preview Mode (Optional)
+
+**This step is optional.** By default, the blog will work with public posts from your WordPress site. Private content such as unpublished posts and private fields cannot be retrieved. To have access to unpublished posts you'll need to set up authentication.
+
+To add [authentication to WPGraphQL](https://docs.wpgraphql.com/guides/authentication-and-authorization/), first you need to add the [WPGraphQL JWT plugin](https://github.com/wp-graphql/wp-graphql-jwt-authentication) to your WordPress Admin following the same process you used to add the WPGraphQL plugin.
+
+> Adding the WPGraphQL JWT plugin will disable your GraphQL API until you add a JWT secret ([GitHub issue](https://github.com/wp-graphql/wp-graphql-jwt-authentication/issues/91)).
+
+Once that's done, you'll need to access the WordPress filesystem to add the secret required to validate JWT tokens. We recommend using SFTP — the instructions vary depending on your hosting provider. For example:
+
+- [SFTP guide for WP Engine](https://wpengine.com/support/sftp/)
+- [SFTP guide for WordPress.com](https://wordpress.com/support/sftp/)
+
+Once you have SFTP access, open `wp-config.php` and add a secret for your JWT:
+
+```php
+define( 'GRAPHQL_JWT_AUTH_SECRET_KEY', 'YOUR_STRONG_SECRET' );
+```
+
+> You can read more about this in the documentation for [WPGraphQL JWT Authentication](https://docs.wpgraphql.com/extensions/wpgraphql-jwt-authentication/).
+
+Now, you need to get a **refresh token** to make authenticated requests with GraphQL. Make the following GraphQL mutation to your WordPress site from the GraphQL IDE (See notes about WPGraphiQL from earlier). Replace `your_username` with the **username** of a user with the `Administrator` role, and `your_password` with the user's password.
+
+```graphql
+mutation Login {
+  login(
+    input: {
+      clientMutationId: "uniqueId"
+      password: "your_password"
+      username: "your_username"
+    }
+  ) {
+    refreshToken
+  }
+}
+```
+
+Copy the `refreshToken` returned by the mutation, then open `.env.local`, and make the following changes:
+
+- Uncomment `WORDPRESS_AUTH_REFRESH_TOKEN` and set it to be the `refreshToken` you just received.
+- Uncomment `WORDPRESS_PREVIEW_SECRET` and set it to be any random string (ideally URL friendly).
+
+Your `.env.local` file should look like this:
+
+```bash
+WORDPRESS_API_URL=...
+
+# Only required if you want to enable preview mode
+WORDPRESS_AUTH_REFRESH_TOKEN=...
+WORDPRESS_PREVIEW_SECRET=...
+```
+
+**Important:** Restart your Next.js server to update the environment variables.
+
+### Step 6. Try preview mode
+
+On your WordPress admin, create a new post like before, but **do not publish** it.
+
+Now, if you go to `http://localhost:3000`, you won’t see the post. However, if you enable **Preview Mode**, you'll be able to see the change ([Documentation](https://nextjs.org/docs/advanced-features/preview-mode)).
+
+To enable Preview Mode, go to this URL:
 
 ```
-npx frontity dev
+http://localhost:3000/api/preview?secret=<secret>&id=<id>
 ```
 
-Runs the app in development mode. Open http://localhost:3000 to view it in the browser.
+- `<secret>` should be the string you entered for `WORDPRESS_PREVIEW_SECRET`.
+- `<id>` should be the post's `databaseId` field, which is the integer that you usually see in the URL (`?post=18` → 18).
+- Alternatively, you can use `<slug>` instead of `<id>`. `<slug>` is generated based on the title.
 
-The site will automatically reload if you make changes inside the `packages` folder. You will see the build errors in the console.
+You should now be able to see this post. To exit Preview Mode, you can click on **Click here to exit preview mode** at the top.
 
-> Have a look at our [Quick Start Guide](https://docs.frontity.org/getting-started/quick-start-guide)
+### Step 7. Deploy on Vercel
 
-### Create your custom theme
+You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
-```
-npx frontity create-package your-custom-theme
-```
+#### Deploy Your Local Project
 
-Use the command `npx frontity create-package` to create a new package that can be set in your `frontity.settings.js` as your theme.
+To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example).
 
-> Have a look at our blog post [How to Create a React WordPress Theme in 30 Minutes](https://frontity.org/blog/how-to-create-a-react-theme-in-30-minutes/)
+**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
 
-### Create a production-ready build
+#### Deploy from Our Template
 
-```
-npx frontity build
-```
+Alternatively, you can deploy using our template by clicking on the Deploy button below.
 
-Builds the app for production to the `build` folder.
-
-This will create a `/build` folder with a `server.js` (a [serverless function](https://vercel.com/docs/v2/serverless-functions/introduction)) file and a `/static` folder with all your javascript files and other assets.
-
-Your app is ready to be deployed.
-
-> Get more info about [Frontity's architecture](https://docs.frontity.org/architecture)
-
-### Deploy
-
-With the files generated in the _build_ you can deploy your project.
-
-#### As a node app
-
-Use `npx frontity serve` to run it like a normal Node app.
-
-This command generates (and runs) a small web server that uses the generated `server.js` and `/static` to serve your content.
-
-#### As a serverless service
-
-Upload your `static` folder to a CDN and your `server.js` file to a serverless service, like Vercel or Netlify.
-
-> Get more info about [how to deploy](https://docs.frontity.org/deployment) a Frontity project
-
----
-
-## Frontity Community
-
-[![Community Forum Topics](https://img.shields.io/discourse/topics?color=blue&label=community%20forum&server=https%3A%2F%2Fcommunity.frontity.org%2F)](https://community.frontity.org/) [![Twitter: frontity](https://img.shields.io/twitter/follow/frontity?style=social)](https://twitter.com/frontity) [![Frontity GitHub Stars](https://img.shields.io/github/stars/frontity/frontity?style=social)](https://github.com/frontity/frontity)
-
-👋 &nbsp;We'd love for you to be part of the Frontity community. There are a variety of different ways in which you can find more information about the project, join in discussions about it, and also get involved:
-
-- **[Learn Frontity](https://frontity.org/learn/)**: in this page you can find Frontity's primary learning resources, including documentation resources, example projects, videos, and more.
-- **[Community forum](https://community.frontity.org/)**: Frontity's forum is a great place to ask questions, help fellow Frontity users, and share your projects. It's also where you can keep track of the development work, join feature discussions, and collaborate on building Frontity itself.
-- **[GitHub](https://github.com/frontity/frontity)**: for bug reports and code contributions. Questions are answered in the community forum.
-
-If you're looking for news and updates about Frontity, [Twitter](https://twitter.com/frontity) and the [blog](https://frontity.org/blog/) are pretty good places to start. You can also join the **[Frontity Newsletter](https://frontity.org/newsletter/)** and stay updated on new releases and features, learning resources, and community news.
-
-### Contributing
-
-Frontity welcomes contributions in all forms. There are many different ways to support the project. Check out the **[How to contribute](https://docs.frontity.org/contributing/how-to-contribute)** page for ideas on contributing and helping make Frontity better.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress&project-name=cms-wordpress&repository-name=cms-wordpress&env=WORDPRESS_API_URL&envDescription=Required%20to%20connect%20the%20app%20with%20WordPress&envLink=https://vercel.link/cms-wordpress-env)

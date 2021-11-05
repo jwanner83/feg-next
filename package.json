@@ -1,27 +1,20 @@
 {
-  "name": "feg-gossau",
-  "version": "1.0.0",
   "private": true,
-  "description": "Frontity project",
-  "keywords": [
-    "frontity"
-  ],
-  "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.0.0"
-  },
   "scripts": {
-    "dev": "frontity dev",
-    "build": "frontity build",
-    "serve": "frontity serve"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
-  "prettier": {},
   "dependencies": {
-    "frontity": "^1.17.0",
-    "@frontity/core": "^1.14.3",
-    "@frontity/wp-source": "^1.11.5",
-    "@frontity/tiny-router": "^1.4.4",
-    "@frontity/html2react": "^1.7.0",
-    "@frontity/mars-theme": "./packages/mars-theme"
+    "classnames": "2.3.1",
+    "date-fns": "2.22.1",
+    "next": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.2.6",
+    "postcss": "8.3.5",
+    "tailwindcss": "^2.2.4"
   }
 }
