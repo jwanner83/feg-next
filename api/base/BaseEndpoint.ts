@@ -6,7 +6,6 @@ import {
   useQuery,
   useQueryClient
 } from 'react-query';
-import { DefaultResponseSchema } from '../common/request.types';
 import { RequestError } from '../common/RequestError';
 import { useRef } from 'react';
 
@@ -25,7 +24,7 @@ export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
   protected createUseGetHook<
     ParamType,
     FnReturnType,
-    QueryReturnType = DefaultResponseSchema<FnReturnType>
+    QueryReturnType = FnReturnType
   >(fn: (context: GetContext<ParamType>) => PromiseLike<FnReturnType>) {
     return (params?: ParamType) => {
       const queryClient = useQueryClient();
