@@ -1,0 +1,7 @@
+{
+    "rules": {
+      "lines-between-class-members": "error"
+    },
+    "extends": ["next", "next/core-web-vitals", "prettier"]
+  }
+  
