@@ -27,8 +27,4 @@
     totalResults: number;
   };
   
-  export type DefaultResponseSchema<T> = {
-    data: Array<T>;
-    pagination: Pagination;
-  };
   
