@@ -1,34 +1,27 @@
-import { dehydrate } from 'react-query'
 import { postEndpoint } from "../api/post/PostEndpoint"
+import ArchiveContainer from '../components/archive/ArchiveContainer'
+import ArchiveItem from '../components/archive/ArchiveItem'
+import Head from 'next/head'
 
 export default function Predigten () {
     const { isLoading, isError, data, error } = postEndpoint.useGetPredigtenRequest()
 
     const predigten = data?.map(predigt => {
-        return <h1 key={predigt.id}>{predigt.title.rendered}</h1>
+        return (<ArchiveItem key={predigt.id} item={predigt} base="predigten" />)
     })
 
     return (
         <>
-            <h1>Predigten</h1>
-
-            {isLoading && <p>Is Loading</p>}
-
+        <Head>
+            <title>Predigten - FEG Gossau</title>
+        </Head>
+        <ArchiveContainer title="Predigten">
             {data && (
-                <>
-                <p>data is filled</p>
-                {predigten}
-                </>
+                <div className="flex flex-col gap-8">
+                    {predigten}
+                </div>
             )}
+        </ArchiveContainer>
         </>
     )
 }
-
-export async function getServerSideProps() {
-    const queryClient = await postEndpoint.prefetchPredigtenRequest(null)
-    return {
-      props: {
-        dehydratedState: dehydrate(queryClient)
-      }
-    }
-  }
