@@ -1,0 +1,12 @@
+.post {
+  p {
+    @apply mb-4;
+  }
+
+  .wp-block-embed {
+    iframe {
+      @apply w-full;
+      height: 500px;
+    }
+  }
+}
