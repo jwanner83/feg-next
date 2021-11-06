@@ -19,15 +19,15 @@ const prepareRequest = (
 
   if (requestOptionsObject?.queryParams) {
     const queryParamsRaw = requestOptionsObject.queryParams;
-
-    // delete undefined queryParams
-    for (const member in queryParamsRaw) {
-      if (queryParamsRaw[member] === undefined) {
-        delete queryParamsRaw[member];
-      }
-    }
     queryParams = new URLSearchParams(queryParamsRaw as any);
   }
+
+  if (requestOptionsObject?.singleQueryParams) {
+    for (const singleQuery of requestOptionsObject.singleQueryParams) {
+      queryParams.set(singleQuery, "")
+    }
+  }
+
   queryParamsString = queryParams.toString();
 
   let body: string | undefined = undefined;
