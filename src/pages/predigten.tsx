@@ -1,3 +1,4 @@
+import { dehydrate, QueryClient } from 'react-query'
 import { postEndpoint } from "../api/post/PostEndpoint"
 import ArchiveContainer from '../components/archive/ArchiveContainer'
 import ArchiveItem from '../components/archive/ArchiveItem'
@@ -24,4 +25,13 @@ export default function Predigten () {
         </ArchiveContainer>
         </>
     )
+}
+
+export async function getStaticProps() {
+    const queryClient = await postEndpoint.prefetchPredigtenRequest(null)
+    return {
+        props: {
+            dehydratedState: dehydrate(queryClient)
+        }
+    }
 }
