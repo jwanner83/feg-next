@@ -108,7 +108,7 @@ export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
   protected createGetPrefetch<ParamType, ReturnType>(
     fn: (context: GetContext<ParamType>) => PromiseLike<ReturnType>
   ) {
-    return async (params: ParamType) => {
+    return async (params: ParamType | null = null) => {
       const queryClient = new QueryClient();
       await queryClient.prefetchQuery<ReturnType>(
         [`${this.key}/${fn.name}`, { params }],
