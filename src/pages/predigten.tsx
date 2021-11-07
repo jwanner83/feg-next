@@ -4,10 +4,8 @@ import ArchiveContainer from '../components/archive/ArchiveContainer'
 import ArchiveItem from '../components/archive/ArchiveItem'
 import Head from 'next/head'
 
-export default function Predigten () {
-    const { isLoading, isError, data, error } = postEndpoint.useGetPredigtenRequest()
-
-    const predigten = data?.map(predigt => {
+export default function Predigten ({ posts }) {
+    const predigten = posts?.map(predigt => {
         return (<ArchiveItem key={predigt.id} item={predigt} base="predigten" />)
     })
 
@@ -17,7 +15,7 @@ export default function Predigten () {
             <title>Predigten - FEG Gossau</title>
         </Head>
         <ArchiveContainer title="Predigten">
-            {data && (
+            {posts && (
                 <div className="flex flex-col gap-8">
                     {predigten}
                 </div>
@@ -28,10 +26,8 @@ export default function Predigten () {
 }
 
 export async function getStaticProps() {
-    const queryClient = await postEndpoint.prefetchPredigtenRequest(null)
+    const posts = await postEndpoint.getPredigtenRequest()
     return {
-        props: {
-            dehydratedState: dehydrate(queryClient)
-        }
+        props: { posts }
     }
 }

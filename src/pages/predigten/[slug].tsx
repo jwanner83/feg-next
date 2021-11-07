@@ -3,20 +3,16 @@ import { postEndpoint } from "../../api/post/PostEndpoint"
 import PostContainer from "../../components/post/PostContainer"
 import PostContent from "../../components/post/PostContent"
 import Head from 'next/head'
+import { Post } from "../../api/post/PostEndpoints.types"
 
-export default function PredigtenPost () {
+type PostParams = {
+    post: Post
+}
+
+export default function PredigtenPost ({ post }: PostParams) {
     const router = useRouter()
-    const slug = router.query?.slug as string
-
-    const { isLoading, isError, data, error } = postEndpoint.useGetPostRequest({
-        slug,
-        type: 'predigten'
-    })
-
-    const post = data?.[0]
 
     const image = post?._embedded["wp:featuredmedia"][0].media_details.sizes.medium_large.source_url
-
 
     return (
         <>
@@ -28,4 +24,22 @@ export default function PredigtenPost () {
         </PostContainer>
         </>
     )
+}
+
+export async function getStaticProps({ params }) {
+    const post = await postEndpoint.getPostRequest({ params: { slug: params.slug, type: 'predigten' }, key: params.slug })
+  
+    return {
+      props: {
+        post: post?.[0]
+      },
+    }
+  }
+  
+export async function getStaticPaths() {
+const predigten = await postEndpoint.getPredigtenMinimalRequest()
+return {
+    paths: predigten.map((predigt: Post) => `/predigten/${predigt.slug}`) || [],
+    fallback: true,
+}
 }
