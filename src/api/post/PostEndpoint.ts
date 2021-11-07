@@ -6,17 +6,15 @@ import { GetPostParams, Post } from "./PostEndpoints.types";
 class PostEndpoint extends BaseEndpoint<PostEndpoint> {
     key = 'post'
 
-    getPredigtenRequest(
-        context: GetContext<null>
-    ): Promise<Post[]> {
+    getPredigtenRequest(): Promise<Post[]> {
         return apiRequest('predigten', {
             singleQueryParams: ['_embed']
         })
     }
 
-    useGetPredigtenRequest = this.createUseGetHook(this.getPredigtenRequest)
-
-    prefetchPredigtenRequest = this.createGetPrefetch(this.getPredigtenRequest)
+    getPredigtenMinimalRequest(): Promise<Post[]> {
+        return apiRequest('predigten')
+    }
 
     getPostRequest(
         context: GetContext<GetPostParams>
@@ -28,8 +26,6 @@ class PostEndpoint extends BaseEndpoint<PostEndpoint> {
             singleQueryParams: ['_embed']
         })
     }
-
-    useGetPostRequest = this.createUseGetHook(this.getPostRequest)
 }
 
 export const postEndpoint = new PostEndpoint()
