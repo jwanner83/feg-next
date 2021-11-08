@@ -28,6 +28,7 @@ export default function Predigten ({ posts }) {
 export async function getStaticProps() {
     const posts = await postEndpoint.getPredigtenRequest()
     return {
-        props: { posts }
+        props: { posts },
+        revalidate: 10
     }
 }
