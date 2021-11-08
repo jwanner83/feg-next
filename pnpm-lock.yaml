@@ -6,6 +6,8 @@ specifiers:
   eslint: 7.30.0
   eslint-config-next: 11.0.1
   eslint-config-prettier: ^8.3.0
+  logrocket: ^2.1.1
+  logrocket-react: ^4.0.1
   next: latest
   postcss: 8.3.5
   prettier: ^2.4.1
@@ -17,6 +19,8 @@ specifiers:
   typescript: ^4.4.4
 
 dependencies:
+  logrocket: 2.1.1
+  logrocket-react: 4.0.1_react-dom@17.0.2+react@17.0.2
   next: 12.0.3_0c41f19aae22112e9f1896e888ec7296
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -2128,6 +2132,20 @@ packages:
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: true
+
+  /logrocket-react/4.0.1_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-TbQELEaDQspKHH0XylAeVZpsHoAcz+sIEG/enUQiH+LoYLW7cMK000XIS6W3Zz14zS0V2Db+KyKi8ivBpGYkzg==}
+    peerDependencies:
+      react: '>=16.10'
+      react-dom: '>=16.10'
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /logrocket/2.1.1:
+    resolution: {integrity: sha512-wFxpQKf+ON/ZywTBVqqORmnJmW4293706bhyBAmzLnwJJrdcpI/ZicT81itbSpfw9ELEmdVT6e8D9Kx19u4uLQ==}
+    dev: false
 
   /loose-envify/1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
