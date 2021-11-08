@@ -3,9 +3,10 @@ import { postEndpoint } from '../api/post/PostEndpoint'
 import ArchiveContainer from '../components/archive/ArchiveContainer'
 import ArchiveItem from '../components/archive/ArchiveItem'
 import Head from 'next/head'
+import { Post } from '../api/post/PostEndpoints.types'
 
 export default function Predigten({ posts }) {
-  const predigten = posts?.map((predigt) => {
+  const predigten = posts?.map((predigt: Post) => {
     return <ArchiveItem key={predigt.id} item={predigt} base="predigten" />
   })
 
