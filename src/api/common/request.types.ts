@@ -2,35 +2,33 @@
  * The type for query parameters
  */
 type ParametersType = {
-  [key: string]: string | undefined;
-};
+  [key: string]: string | undefined
+}
 
 /**
  * The type for single query parameters
  */
- type singleParametersType = string[];
-  
+type singleParametersType = string[]
+
 /**
  * The options to pass to an API request, includes query parameters
  */
 interface RequestOptions extends RequestInit {
-  queryParams?: ParametersType;
+  queryParams?: ParametersType
   singleQueryParams?: singleParametersType
 }
 
 export type ApiRequestOptions = Omit<RequestOptions, 'body'> & {
-  body?: any;
-};
+  body?: any
+}
 
 export type RequestErrorType = {
-  statusCode: number;
-  name: string;
-};
+  statusCode: number
+  name: string
+}
 
 export type Pagination = {
-  offset: number;
-  limit: number;
-  totalResults: number;
-};
-
-  
+  offset: number
+  limit: number
+  totalResults: number
+}

@@ -1,20 +1,15 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { EditContext, GetContext, UseEditReturnType } from './Base.types';
-import {
-  QueryClient,
-  useMutation,
-  useQuery,
-  useQueryClient
-} from 'react-query';
-import { RequestError } from '../common/RequestError';
-import { useRef } from 'react';
+import { EditContext, GetContext, UseEditReturnType } from './Base.types'
+import { QueryClient, useMutation, useQuery, useQueryClient } from 'react-query'
+import { RequestError } from '../common/RequestError'
+import { useRef } from 'react'
 
 /**
  * The base endpoint
  * Every endpoint extends this class
  */
 export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
-  abstract key: string;
+  abstract key: string
 
   /**
    * Create the useGet hook for GET requests in react components
@@ -27,17 +22,17 @@ export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
     QueryReturnType = FnReturnType
   >(fn: (context: GetContext<ParamType>) => PromiseLike<FnReturnType>) {
     return (params?: ParamType) => {
-      const queryClient = useQueryClient();
-      const queryKey = [`${this.key}/${fn.name}`, { params }];
+      const queryClient = useQueryClient()
+      const queryKey = [`${this.key}/${fn.name}`, { params }]
       const query = useQuery<QueryReturnType>(queryKey, (context) =>
         this.extractContext(context, fn)
-      );
-      const invalidateQuery = () => queryClient.invalidateQueries(queryKey);
+      )
+      const invalidateQuery = () => queryClient.invalidateQueries(queryKey)
       return {
         ...query,
         invalidateQuery
-      };
-    };
+      }
+    }
   }
 
   /**
@@ -52,10 +47,10 @@ export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
       FnReturnType,
       { body?: BodyType; params?: ParamType }
     > => {
-      const noop = () => {};
-      let successHandler = useRef<any>(noop);
-      let failureHandler = useRef<any>(noop);
-      let settledHandler = useRef<any>(noop);
+      const noop = () => {}
+      let successHandler = useRef<any>(noop)
+      let failureHandler = useRef<any>(noop)
+      let settledHandler = useRef<any>(noop)
 
       const mutation = useMutation<
         FnReturnType,
@@ -75,29 +70,29 @@ export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
           useErrorBoundary: false,
           retry: false
         }
-      );
+      )
 
       const onSuccess = (successFn: (data: FnReturnType) => void) => {
-        successHandler.current = successFn;
-      };
+        successHandler.current = successFn
+      }
 
       const onError = (errorFn: (error: RequestError) => void) => {
-        failureHandler.current = errorFn;
-      };
+        failureHandler.current = errorFn
+      }
 
       const onSettled = (
         settledFn: (data: FnReturnType, error: RequestError) => void
       ) => {
-        settledHandler.current = settledFn;
-      };
+        settledHandler.current = settledFn
+      }
 
       return {
         mutation,
         onSuccess,
         onError,
         onSettled
-      };
-    };
+      }
+    }
   }
 
   /**
@@ -109,13 +104,13 @@ export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
     fn: (context: GetContext<ParamType>) => PromiseLike<ReturnType>
   ) {
     return async (params: ParamType | null = null) => {
-      const queryClient = new QueryClient();
+      const queryClient = new QueryClient()
       await queryClient.prefetchQuery<ReturnType>(
         [`${this.key}/${fn.name}`, { params }],
         (context) => this.extractContext(context, fn)
-      );
-      return queryClient;
-    };
+      )
+      return queryClient
+    }
   }
 
   /**
@@ -125,8 +120,8 @@ export abstract class BaseEndpoint<SubClass extends BaseEndpoint<SubClass>> {
    * @private
    */
   private extractContext(context: any, fn: any) {
-    const [_key, { params }] = context.queryKey;
+    const [_key, { params }] = context.queryKey
 
-    return fn({ key: _key, params });
+    return fn({ key: _key, params })
   }
 }
