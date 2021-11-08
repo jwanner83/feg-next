@@ -4,9 +4,12 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Home - FEG Gossau</title>
+        <title>FEG Gossau - Die Freie Evangelische Gemeinde in Gossau</title>
       </Head>
-      <h1>Home</h1>
+
+      <div className="flex justify-center items-center py-56">
+        <h1 className="font-bold text-6xl">Willkommen</h1>
+      </div>
     </>
   )
 }

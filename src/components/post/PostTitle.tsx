@@ -6,7 +6,7 @@ type ArchiveTitleParams = {
 export default function ArchiveTitle({ title, image }) {
   return (
     <div className="flex justify-center items-center py-56">
-      <h1 className="">{title}</h1>
+      <h1 className="font-bold">{title}</h1>
     </div>
   )
 }
