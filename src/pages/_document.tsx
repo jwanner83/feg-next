@@ -1,13 +1,17 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { Html, Head, Main, NextScript } from 'next/document'
+import { useEffect } from 'react'
 import LogRocket from 'logrocket'
 import setupLogRocketReact from 'logrocket-react'
 
 export default function Document() {
-  if (typeof window !== 'undefined') {
-    LogRocket.init('aplimj/feg-next');
-    setupLogRocketReact(LogRocket);
-  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      LogRocket.init('aplimj/feg-next');
+      setupLogRocketReact(LogRocket);
+    }
+  })
 
   return (
     <Html>
