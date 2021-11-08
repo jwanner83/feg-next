@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "prettier --write ./src && next lint"
   },
   "dependencies": {
     "next": "latest",
