@@ -1,12 +1,22 @@
+import Image from 'next/image'
+
 type ArchiveTitleParams = {
   title: string
   image: string
+  date: string
 }
 
-export default function ArchiveTitle({ title, image }) {
+export default function ArchiveTitle({ title, date, image }) {
   return (
-    <div className="flex justify-center items-center py-56">
-      <h1 className="font-bold">{title}</h1>
+    <div className="">
+      <div className="min-h-screen">
+        <Image className="object-cover" src={image} layout="fill" alt={title} />
+
+        <div className="flex flex-col justify-center">
+          <h1 className="font-bold text-5xl">{title}</h1>
+          <p className="italic mt-2">{date}</p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -13,15 +13,18 @@ export default function PredigtenPost({ post }: PostParams) {
   const router = useRouter()
 
   const image =
-    post?._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large
-      .source_url
+    post?._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url
 
   return (
     <>
       <Head>
         <title>{post?.title.rendered} - FEG Gossau</title>
       </Head>
-      <PostContainer title={post?.title.rendered} image={image}>
+      <PostContainer
+        title={post?.title.rendered}
+        image={image}
+        date={post?.date}
+      >
         <PostContent post={post} />
       </PostContainer>
     </>
