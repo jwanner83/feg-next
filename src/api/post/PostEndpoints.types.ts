@@ -10,6 +10,7 @@ export interface Post {
   content: rendered
   link: string
   slug: string
+  date: string
   _embedded: _embedded
 }
 
