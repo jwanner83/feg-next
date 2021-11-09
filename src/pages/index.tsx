@@ -8,7 +8,7 @@ export default function Index() {
       </Head>
 
       <div className="flex justify-center items-center py-56">
-        <h1 className="font-bold text-6xl">Willkommen</h1>
+        <h1 className="font-bold md:text-6xl text-4xl">Willkommen</h1>
       </div>
     </>
   )

@@ -16,7 +16,9 @@ export default function Predigten({ posts }) {
         <title>Predigten - FEG Gossau</title>
       </Head>
       <ArchiveContainer title="Predigten">
-        {posts && <div className="flex flex-col gap-8">{predigten}</div>}
+        {posts && (
+          <div className="flex flex-col md:gap-8 gap-16">{predigten}</div>
+        )}
       </ArchiveContainer>
     </>
   )
