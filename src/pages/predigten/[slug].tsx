@@ -15,16 +15,15 @@ export default function PredigtenPost({ post }: PostParams) {
   const image =
     post?._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url
 
+  const rawDate = new Date(post?.date)
+  const date = `${rawDate?.getDate()}.${rawDate?.getMonth()}.${rawDate.getFullYear()}`
+
   return (
     <>
       <Head>
         <title>{post?.title.rendered} - FEG Gossau</title>
       </Head>
-      <PostContainer
-        title={post?.title.rendered}
-        image={image}
-        date={post?.date}
-      >
+      <PostContainer title={post?.title.rendered} image={image} date={date}>
         <PostContent post={post} />
       </PostContainer>
     </>
