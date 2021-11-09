@@ -14,6 +14,9 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         archive: '3fr 4fr'
+      },
+      margin: {
+        '-2/4': '-50%'
       }
     },
     minHeight: {
