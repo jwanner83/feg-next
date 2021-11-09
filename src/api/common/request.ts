@@ -1,7 +1,7 @@
 import { fetcher } from './fetcher'
 import { ApiRequestOptions } from './request.types'
 
-const baseUrl = 'https://test.feg-gossau.ch/wp-json/wp/v2/'
+const baseUrl = 'https://feg-gossau.ch/wp-json/wp/v2/'
 
 /**
  * Prepares the request received by an endpoint function to be fetched
