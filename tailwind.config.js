@@ -15,7 +15,13 @@ module.exports = {
       gridTemplateColumns: {
         archive: '3fr 4fr'
       }
-    }
+    },
+    minHeight: {
+      post: '60vh'
+    },
+    gradientColorStops: (theme) => ({
+      'black-transparent': '#000000d6'
+    })
   },
   plugins: [
     plugin(function ({ addBase, theme }) {

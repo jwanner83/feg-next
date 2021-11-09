@@ -4,9 +4,21 @@
   }
 
   .wp-block-embed {
+    @apply mb-4;
+
     iframe {
       @apply w-full;
-      height: 500px;
+      height: 400px;
+      @apply mb-2;
+    }
+  }
+
+  .wp-block-audio {
+    @apply mb-4;
+
+    audio {
+      @apply w-full;
+      @apply mb-2;
     }
   }
 }
