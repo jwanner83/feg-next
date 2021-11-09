@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function CoreHeader() {
   return (
-    <div className="flex justify-between items-center w-full">
+    <div className="flex justify-between items-center w-full mb-8">
       <Link href="/" passHref={true}>
         <a>
           <Image
