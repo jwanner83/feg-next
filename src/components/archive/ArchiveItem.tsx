@@ -1,4 +1,4 @@
-import { Post } from '../../api/post/PostEndpoints.types'
+import { Post } from '@/api/post/PostEndpoints.types'
 import Image from 'next/image'
 import Link from 'next/link'
 
