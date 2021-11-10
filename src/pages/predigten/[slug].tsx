@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
-import { postEndpoint } from '../../api/post/PostEndpoint'
-import PostContainer from '../../components/post/PostContainer'
-import PostContent from '../../components/post/PostContent'
+import { postEndpoint } from '@/api/post/PostEndpoint'
 import Head from 'next/head'
-import { Post } from '../../api/post/PostEndpoints.types'
+import PostComponent from '@/components/post/Post'
+import { Post } from '@/api/post/PostEndpoints.types'
 
 type PostParams = {
   post: Post
@@ -23,9 +22,8 @@ export default function PredigtenPost({ post }: PostParams) {
       <Head>
         <title>{post?.title.rendered} - FEG Gossau</title>
       </Head>
-      <PostContainer title={post?.title.rendered} image={image} date={date}>
-        <PostContent post={post} />
-      </PostContainer>
+
+      <PostComponent post={post} />
     </>
   )
 }
