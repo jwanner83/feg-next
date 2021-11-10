@@ -6,6 +6,7 @@ specifiers:
   eslint: 7.30.0
   eslint-config-next: 11.0.1
   eslint-config-prettier: ^8.3.0
+  eslint-plugin-import-alias: ^1.2.0
   logrocket: ^2.1.1
   logrocket-react: ^4.0.1
   next: latest
@@ -32,6 +33,7 @@ devDependencies:
   eslint: 7.30.0
   eslint-config-next: 11.0.1_1b64bd3312ee213771abdc3331069bf8
   eslint-config-prettier: 8.3.0_eslint@7.30.0
+  eslint-plugin-import-alias: 1.2.0
   postcss: 8.3.5
   prettier: 2.4.1
   sass: 1.43.4
@@ -1293,6 +1295,10 @@ packages:
       debug: 3.2.7
       find-up: 2.1.0
       pkg-dir: 2.0.0
+    dev: true
+
+  /eslint-plugin-import-alias/1.2.0:
+    resolution: {integrity: sha512-hxhpWtaXgBTeCUmQa6EzjKI8vnrk7uej9e+ln2etTMPFAM7Q8xNPdBywSGrWf2mSB018D66sR1ZfdThonXCplg==}
     dev: true
 
   /eslint-plugin-import/2.25.2_eslint@7.30.0:

@@ -3,7 +3,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "prettier --write ./src && next lint"
+    "lint": "prettier --write ./src && next lint --fix"
   },
   "dependencies": {
     "logrocket": "^2.1.1",
@@ -19,6 +19,7 @@
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import-alias": "^1.2.0",
     "postcss": "8.3.5",
     "prettier": "^2.4.1",
     "sass": "^1.43.4",

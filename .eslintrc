@@ -1,7 +1,14 @@
 {
-    "rules": {
-      "lines-between-class-members": "error"
-    },
-    "extends": ["next", "next/core-web-vitals", "prettier"]
-  }
-  
+  "plugins": ["import-alias"],
+  "rules": {
+    "lines-between-class-members": "error",
+    "import-alias/import-alias": [
+      "error",
+      {
+        "relativeDepth": 0,
+        "aliases": [{ "alias": "@", "matcher": "^src" }]
+      }
+    ]
+  },
+  "extends": ["next", "next/core-web-vitals", "prettier"]
+}
