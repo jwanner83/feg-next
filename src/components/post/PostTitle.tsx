@@ -1,16 +1,12 @@
 import Image from 'next/image'
 
-type ArchiveTitleParams = {
+type PostTitleParams = {
   title: string
   image: string
   date: string
 }
 
-export default function ArchiveTitle({
-  title,
-  date,
-  image
-}: ArchiveTitleParams) {
+export default function PostTitle({ title, date, image }: PostTitleParams) {
   return (
     <div className="flex flex-col-reverse md:flex-col mb-6 md:mb-0">
       <div className="flex flex-col justify-center md:items-center my-8 md:my-32">

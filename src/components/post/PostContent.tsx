@@ -1,4 +1,4 @@
-import { Post } from '../../api/post/PostEndpoints.types'
+import { Post } from '@/api/post/PostEndpoints.types'
 
 type PostContentParams = {
   post: Post
