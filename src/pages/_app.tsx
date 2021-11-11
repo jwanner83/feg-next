@@ -1,4 +1,5 @@
 import 'tailwindcss/tailwind.css'
+import '@/styles/content.scss'
 import '@/styles/post.scss'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
