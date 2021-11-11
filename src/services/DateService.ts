@@ -1,7 +1,7 @@
 class DateService {
   public getFormattedDate(date: Date) {
     const days = this.fillWithZero(date.getDate())
-    const month = this.fillWithZero(date.getMonth())
+    const month = this.fillWithZero(date.getMonth() + 1)
     const year = date.getFullYear()
 
     return `${days}.${month}.${year}`
