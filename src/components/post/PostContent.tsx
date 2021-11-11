@@ -1,4 +1,4 @@
-import { Post } from '@/api/endpoints/post.types'
+import { Post } from '@/api/endpoints/post/post.types'
 
 type PostContentParams = {
   post: Post
@@ -6,7 +6,7 @@ type PostContentParams = {
 
 export default function PostContent({ post }: PostContentParams) {
   return (
-    <div className="post max-w-2xl mx-auto">
+    <div className="content max-w-2xl mx-auto">
       <div dangerouslySetInnerHTML={{ __html: post?.content }} />
     </div>
   )

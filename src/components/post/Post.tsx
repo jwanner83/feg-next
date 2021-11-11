@@ -1,4 +1,4 @@
-import { Post } from '@/api/endpoints/post.types'
+import { Post } from '@/api/endpoints/post/post.types'
 import React from 'react'
 import PostContent from './PostContent'
 import PostTitle from './PostTitle'
