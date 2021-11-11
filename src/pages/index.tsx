@@ -22,7 +22,7 @@ export default function Index({ page }: IndexParams) {
           {page.title}
         </h1>
 
-        <div className="absolute h-index w-full z-0 md:z-10 md:h-index-image md:w-2/4 md:right-0">
+        <div className="absolute h-index w-full z-0 md:z-10 md:h-index-image md:w-3/5 md:right-0">
           <Image
             className="object-cover"
             src={page.image.large}
@@ -32,7 +32,7 @@ export default function Index({ page }: IndexParams) {
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto mt-12">
+      <div className="max-w-2xl mx-auto mt-24">
         <div
           className="content"
           dangerouslySetInnerHTML={{ __html: page.content }}
@@ -42,7 +42,7 @@ export default function Index({ page }: IndexParams) {
   )
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const page = await getPage({ slug: 'Willkommen' })
 
   return {
