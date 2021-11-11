@@ -6,7 +6,7 @@ type PostContentParams = {
 
 export default function PostContent({ post }: PostContentParams) {
   return (
-    <div className="content max-w-2xl mx-auto">
+    <div className="content post max-w-2xl mx-auto">
       <div dangerouslySetInnerHTML={{ __html: post?.content }} />
     </div>
   )
