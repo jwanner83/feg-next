@@ -16,8 +16,9 @@ export default function CoreHeader() {
         </a>
       </Link>
 
-      <div className="flex gap-4">
+      <div className="flex gap-8">
         <Link href="/predigten">Predigten</Link>
+        <Link href="/news">News</Link>
       </div>
     </div>
   )
