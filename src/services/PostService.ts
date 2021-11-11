@@ -1,4 +1,4 @@
-import { Post, RawPost } from '@/api/endpoints/post.types'
+import { Post, RawPost } from '@/api/endpoints/post/post.types'
 import { dateService } from './DateService'
 import { imageService } from './ImageService'
 

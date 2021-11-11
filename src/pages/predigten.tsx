@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Archive from '@/components/archive/Archive'
-import { getPosts } from '@/api/endpoints/post'
-import { Post } from '@/api/endpoints/post.types'
+import { getPosts } from '@/api/endpoints/post/post'
+import { Post } from '@/api/endpoints/post/post.types'
 
 type PredigtenParams = {
   posts: Post[]
