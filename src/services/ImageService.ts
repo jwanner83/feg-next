@@ -1,4 +1,4 @@
-import { Image, _embedded } from '@/api/endpoints/post.types'
+import { Image, _embedded } from '@/api/endpoints/basic.types'
 
 class ImageService {
   getImage(_embedded: _embedded): Image {
