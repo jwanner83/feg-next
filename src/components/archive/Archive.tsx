@@ -18,7 +18,7 @@ export default function Archive({ title, posts }: ArchvieParams) {
     <>
       <ArchiveTitle title={title} />
 
-      <div className="flex flex-col gap-16">{items}</div>
+      <div className="flex flex-col gap-16 mb-20">{items}</div>
     </>
   )
 }
