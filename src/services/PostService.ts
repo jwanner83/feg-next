@@ -11,7 +11,7 @@ class PostService {
       content: raw.content.rendered,
       excerpt: raw.excerpt.rendered,
       formattedDate: dateService.getFormattedDate(new Date(raw.date)),
-      image: imageService.getImage(raw._embedded)
+      image: imageService.getImage(raw._embedded) || null
     }
   }
 }
