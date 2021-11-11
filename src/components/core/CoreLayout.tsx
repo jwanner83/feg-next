@@ -9,8 +9,8 @@ type CoreLayoutParams = {
 export default function CoreLayout({ children }) {
   return (
     <>
-      <div className="flex flex-col items-center">
-        <div className="max-w-6xl p-8 w-full relative overflow-x-hidden">
+      <div className="flex flex-col items-center overflow-x-hidden">
+        <div className="max-w-6xl p-8 w-full relative">
           <CoreHeader />
           {children}
         </div>
