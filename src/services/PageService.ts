@@ -3,7 +3,7 @@ import { dateService } from './DateService'
 import { imageService } from './ImageService'
 
 class PageService {
-  getPost(raw: RawPage): Page {
+  getPage(raw: RawPage): Page {
     return {
       id: raw.id,
       slug: raw.slug,
