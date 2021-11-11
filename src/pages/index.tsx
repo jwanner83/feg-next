@@ -15,5 +15,3 @@ export default function Index({}: IndexParams) {
     </>
   )
 }
-
-export async function getStaticProps() {}
