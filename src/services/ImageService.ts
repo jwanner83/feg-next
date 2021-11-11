@@ -2,12 +2,12 @@ import { Image, _embedded } from '@/api/endpoints/basic.types'
 
 class ImageService {
   getImage(_embedded: _embedded): Image {
-    const sizes = _embedded['wp:featuredmedia']?.[0]?.media_details.sizes
+    const sizes = _embedded['wp:featuredmedia']?.[0]?.media_details?.sizes
 
     if (sizes) {
       return {
-        thumbnail: sizes.medium_large.source_url,
-        large: sizes.large.source_url
+        thumbnail: sizes?.medium_large?.source_url || null,
+        large: sizes?.large?.source_url || null
       }
     }
 
