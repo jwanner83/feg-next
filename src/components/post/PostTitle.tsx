@@ -10,7 +10,7 @@ export default function PostTitle({ title, date, image }: PostTitleParams) {
   return (
     <div className="flex flex-col-reverse md:flex-col mb-6 md:mb-0">
       <div className="flex flex-col justify-center md:items-center my-8 md:my-32">
-        <h1 className="font-bold md:text-5xl text-3xl leading-tight md:text-center max-w-2xl">
+        <h1 className="font-bold md:text-5xl text-3xl leading-relaxed md:text-center max-w-2xl">
           {title}
         </h1>
         <p className="italic mt-4 text-gray-800">{date}</p>
