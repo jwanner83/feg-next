@@ -1,4 +1,4 @@
-import { Post } from '@/api/endpoints/post.types'
+import { Post } from '@/api/endpoints/post/post.types'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,7 +13,7 @@ export default function ArchiveItem({ item, base }: ArchiveItemParams) {
       <a>
         <div className="grid md:grid-cols-archive grid-cols-1 md:gap-10 gap-6">
           <div className="bg-gray-100 h-72 relative">
-            {item.image && (
+            {item.image?.thumbnail && (
               <Image
                 src={item.image.thumbnail}
                 alt={item.title}
