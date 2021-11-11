@@ -1,16 +1,16 @@
-import { getPage, getPages } from '@/api/endpoints/page/page'
-import { Page } from '@/api/endpoints/page/page.types'
+import { getPost, getPosts } from '@/api/endpoints/post/post'
+import { Post } from '@/api/endpoints/post/post.types'
 
 type PageComponentParams = {
-  page: Page
+  post: Post
 }
 
-export default function PageComponent({ page }) {
-  return <>{page?.title}</>
+export default function PageComponent({ post }) {
+  return <>{post?.title}</>
 }
 
 export async function getStaticProps({ params }) {
-  const page = await getPage({ slug: params.slug })
+  const page = await getPost({ type: 'pages', slug: params.slug })
 
   return {
     props: {
@@ -21,10 +21,10 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const pages = await getPages()
+  const posts = await getPosts({ type: 'pages' })
 
   return {
-    paths: pages.map((page) => `/${page.slug}`) || [],
+    paths: posts.map((post) => `/${post.slug}`) || [],
     fallback: true
   }
 }
