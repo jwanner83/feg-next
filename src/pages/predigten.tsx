@@ -1,10 +1,13 @@
-import { postEndpoint } from '@/api/post/PostEndpoint'
-import ArchiveItem from '@/components/archive/ArchiveItem'
 import Head from 'next/head'
-import { Post } from '@/api/post/PostEndpoints.types'
 import Archive from '@/components/archive/Archive'
+import { getPosts } from '@/api/endpoints/post'
+import { Post } from '@/api/endpoints/post.types'
 
-export default function Predigten({ posts }) {
+type PredigtenParams = {
+  posts: Post[]
+}
+
+export default function Predigten({ posts }: PredigtenParams) {
   return (
     <>
       <Head>
@@ -17,7 +20,7 @@ export default function Predigten({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await postEndpoint.getPredigtenRequest()
+  const posts = await getPosts({ type: 'predigten' })
   return {
     props: { posts },
     revalidate: 10
