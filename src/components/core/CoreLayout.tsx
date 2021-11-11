@@ -10,7 +10,7 @@ export default function CoreLayout({ children }) {
   return (
     <>
       <div className="flex flex-col items-center">
-        <div className="max-w-6xl p-8 w-full">
+        <div className="max-w-6xl p-8 w-full relative overflow-x-hidden">
           <CoreHeader />
           {children}
         </div>
