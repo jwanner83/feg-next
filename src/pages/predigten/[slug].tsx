@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import PostComponent from '@/components/post/Post'
-import { Post } from '@/api/endpoints/post.types'
-import { getPost, getPosts } from '@/api/endpoints/post'
+import { Post } from '@/api/endpoints/post/post.types'
+import { getPost, getPosts } from '@/api/endpoints/post/post'
 
 type PostParams = {
   post: Post
