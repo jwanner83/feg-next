@@ -1,31 +1,55 @@
 import { request } from '@/api/request'
 import { postService } from '@/services/PostService'
-import { getPostParams, getPostsParams, Post, RawPost } from './post.types'
+import {
+  getPostCountParams,
+  getPostParams,
+  getPostsParams,
+  Post,
+  RawPost
+} from './post.types'
 
-export async function getPosts({ type }: getPostsParams) {
-  const posts: RawPost[] = await request(type, {
+export async function getPostCount({
+  type
+}: getPostCountParams): Promise<Number> {
+  const { headers } = await request<RawPost[]>(type.toLowerCase(), {
     params: {
-      _embed: ''
+      per_page: '1'
     }
   })
 
-  if (posts && posts.length > 0) {
-    return posts.map((post) => postService.getPost(post))
+  return Number(headers.get('x-wp-total'))
+}
+
+export async function getPosts({
+  type,
+  amount = 10,
+  page = 1
+}: getPostsParams) {
+  const { data } = await request<RawPost[]>(type.toLowerCase(), {
+    params: {
+      _embed: '',
+      page: String(page),
+      per_page: String(amount)
+    }
+  })
+
+  if (data && data.length > 0) {
+    return data.map((post) => postService.getPost(post))
   }
 
   return null
 }
 
 export async function getPost({ type, slug }: getPostParams): Promise<Post> {
-  const post: RawPost[] = await request(type, {
+  const { data } = await request<RawPost[]>(type.toLowerCase(), {
     params: {
       _embed: '',
       slug
     }
   })
 
-  if (post && post.length > 0) {
-    return postService.getPost(post[0])
+  if (data && data.length > 0) {
+    return postService.getPost(data[0])
   }
 
   return null

@@ -1,7 +1,13 @@
 import { Image, rendered, _embedded } from '@/api/endpoints/basic.types'
 
+export interface getPostCountParams {
+  type: string
+}
+
 export interface getPostsParams {
   type: string
+  amount?: number
+  page?: number
 }
 
 export interface getPostParams {
