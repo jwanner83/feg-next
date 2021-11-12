@@ -9,7 +9,7 @@ type ArchiveItemParams = {
 
 export default function ArchiveItem({ item, base }: ArchiveItemParams) {
   return (
-    <Link href={`${base}/${encodeURIComponent(item.slug)}`} passHref={true}>
+    <Link href={`/${base}/${encodeURIComponent(item.slug)}`} passHref={true}>
       <a>
         <div className="grid md:grid-cols-archive grid-cols-1 md:gap-10 gap-6">
           <div className="bg-gray-100 h-72 relative">
