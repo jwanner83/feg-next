@@ -3,11 +3,13 @@ import PostComponent from '@/components/post/Post'
 import { Post } from '@/api/endpoints/post/post.types'
 import { getPost, getPosts } from '@/api/endpoints/post/post'
 
+const type = 'News'
+
 type PostParams = {
   post: Post
 }
 
-export default function PredigtenPost({ post }: PostParams) {
+export default function NewsPost({ post }: PostParams) {
   return (
     <>
       <Head>
@@ -20,7 +22,7 @@ export default function PredigtenPost({ post }: PostParams) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPost({ slug: params.slug, type: 'news' })
+  const post = await getPost({ slug: params.slug, type })
 
   return {
     props: {
@@ -31,10 +33,10 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getPosts({ type: 'news' })
+  const posts = await getPosts({ type })
 
   return {
-    paths: posts.map((post) => `/news/${post.slug}`) || [],
+    paths: posts.map((post) => `/${type.toLowerCase()}/${post.slug}`) || [],
     fallback: true
   }
 }
