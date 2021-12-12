@@ -1,6 +1,8 @@
-const base = 'https://feg-gossau.ch/wp-json/wp/v2/'
+const host = 'https://feg-gossau.ch/wp-json/'
+const base = 'wp/v2/'
 
 interface options extends RequestInit {
+  base?: string
   body?: any
   params?: {
     [key: string]: string | undefined
@@ -8,17 +10,25 @@ interface options extends RequestInit {
 }
 
 function prepare(endpoint: string, options: options) {
+  const edited = { ...options }
   let params = ''
 
-  if (options.params) {
-    params = new URLSearchParams(options.params).toString()
+  if (edited.params) {
+    params = new URLSearchParams(edited.params).toString()
   }
 
-  const url = base + endpoint + '?' + params
+  let url = endpoint + '?' + params
+
+  if (edited.base) {
+    url = host + edited.base + url
+    delete edited.base
+  } else {
+    url = host + base + url
+  }
 
   return {
     url,
-    options
+    options: edited
   }
 }
 
