@@ -23,10 +23,12 @@ export default function ArchiveItem({ item, base }: ArchiveItemParams) {
             )}
           </div>
           <div className="flex justify-center flex-col">
-            <h2 className="font-bold">{item.title}</h2>
-            <p className="italic mt-4 text-gray-800">{item.formattedDate}</p>
+            <h2 className="font-bold dark:text-white">{item.title}</h2>
+            <p className="italic mt-4 text-gray-800 dark:text-gray-300">
+              {item.formattedDate}
+            </p>
             <div
-              className="mt-4"
+              className="mt-4 dark:text-white"
               dangerouslySetInnerHTML={{ __html: item.excerpt }}
             ></div>
           </div>

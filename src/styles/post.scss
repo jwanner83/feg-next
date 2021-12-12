@@ -17,4 +17,40 @@
       @apply mb-2;
     }
   }
+
+  .wp-block-file {
+    display: grid;
+    grid-template-columns: auto min-content;
+    @apply mb-4;
+
+    a:first-child {
+      @apply py-3 px-5 font-bold;
+      background-color: #f7f7f7;
+    }
+
+    a:last-child {
+      @apply py-3 px-6 font-bold;
+      background-color: #222;
+      color: white;
+    }
+  }
+
+  p,
+  figcaption {
+    @apply font-light;
+    line-height: 28px;
+  }
+}
+
+.dark {
+  .wp-block-file {
+    a:first-child {
+      background-color: #2f2f2f;
+    }
+
+    a:last-child {
+      background-color: white;
+      color: black;
+    }
+  }
 }

@@ -37,6 +37,9 @@ module.exports = {
       height: {
         index: '70vh',
         'index-image': '60vh'
+      },
+      colors: {
+        dark: '#171717'
       }
     },
     minHeight: {

@@ -3,11 +3,11 @@ import React from 'react'
 import PostContent from './PostContent'
 import PostTitle from './PostTitle'
 
-type PostParams = {
+type PostComponentParams = {
   post: Post
 }
 
-export default function Archive({ post }: PostParams) {
+export default function PostComponent({ post }: PostComponentParams) {
   return (
     <>
       <PostTitle

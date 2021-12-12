@@ -1,7 +1,18 @@
+import { getMenu } from '@/api/endpoints/menu/menu'
+import { Menu } from '@/api/endpoints/menu/menu.types'
 import Image from 'next/image'
 import Link from 'next/link'
+import { NavigationItem } from '@/components/navigation/NavigationItem'
 
-export default function CoreHeader() {
+type CoreHeaderParams = {
+  menus?: Menu[] | null
+}
+
+export default function CoreHeader({ menus }: CoreHeaderParams) {
+  const navigationItems = menus?.map((menu: Menu) => (
+    <NavigationItem key={menu.ID} item={menu} />
+  ))
+
   return (
     <div className="flex justify-between items-center w-full mb-8">
       <Link href="/" passHref={true}>
@@ -16,10 +27,7 @@ export default function CoreHeader() {
         </a>
       </Link>
 
-      <div className="flex gap-8">
-        <Link href="/predigten">Predigten</Link>
-        <Link href="/news">News</Link>
-      </div>
+      <div className="flex gap-8">{navigationItems}</div>
     </div>
   )
 }

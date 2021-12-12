@@ -1,20 +1,32 @@
 import { getPost, getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
+import PostComponent from '@/components/post/Post'
+import Head from 'next/head'
 
 type PageComponentParams = {
   post: Post
 }
 
 export default function PageComponent({ post }) {
-  return <>{post?.title}</>
+  console.log('post', post)
+
+  return (
+    <>
+      <Head>
+        <title>{post?.title} - FEG Gossau</title>
+      </Head>
+
+      <PostComponent post={post} />
+    </>
+  )
 }
 
 export async function getStaticProps({ params }) {
-  const page = await getPost({ type: 'pages', slug: params.slug })
+  const post = await getPost({ type: 'pages', slug: params.slug })
 
   return {
     props: {
-      page
+      post
     },
     revalidate: 10
   }
