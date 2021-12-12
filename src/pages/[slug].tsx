@@ -8,8 +8,6 @@ type PageComponentParams = {
 }
 
 export default function PageComponent({ post }) {
-  console.log('post', post)
-
   return (
     <>
       <Head>
