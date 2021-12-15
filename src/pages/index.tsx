@@ -1,5 +1,6 @@
 import { getPost } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
+import Presented from '@/components/presented/Presented'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -31,6 +32,8 @@ export default function Index({ post }: IndexParams) {
           />
         </div>
       </div>
+
+      <Presented type="predigten" title="Aktuelle Predigten" />
 
       <div className="max-w-2xl mx-auto mt-24">
         <div

@@ -9,6 +9,7 @@ export async function getMenu({
   menus.push(createMenuItem('Predigten', 'predigten'))
   menus.push(createMenuItem('News', 'news'))
   menus.push(createMenuItem('Agenda', 'agenda'))
+  menus.push(createMenuItem('Kontakt', 'kontakt'))
 
   return menus
 }
