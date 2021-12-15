@@ -1,8 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}'
   ],
@@ -40,14 +39,14 @@ module.exports = {
       },
       colors: {
         dark: '#171717'
-      }
+      },
+      gradientColorStops: (theme) => ({
+        'black-transparent': '#000000d6'
+      })
     },
     minHeight: {
       post: '60vh'
-    },
-    gradientColorStops: (theme) => ({
-      'black-transparent': '#000000d6'
-    })
+    }
   },
   plugins: [
     plugin(function ({ addBase, theme }) {
