@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CoreTheme from './CoreTheme'
 
 export default function CoreFooter() {
   return (
@@ -20,27 +21,10 @@ export default function CoreFooter() {
             </a>
           </div>
           <div className="flex items-center">
-            <h4 className="font-bold">
-              <Link href="/predigten">Predigten</Link>
-            </h4>
-          </div>
-          <div className="flex items-center">
-            <h4 className="font-bold">
-              <Link href="/news">News</Link>
-            </h4>
-          </div>
-          <div className="flex items-center">
-            <h4 className="font-bold">
-              <Link href="/angebote">Angebote</Link>
-            </h4>
-          </div>
-          <div className="flex items-center">
-            <h4 className="font-bold">
-              <Link href="/kontakt">Kontakt</Link>
-            </h4>
+            <CoreTheme />
           </div>
         </div>
-        <div className="flex justify-between border-t border-gray-300 border-solid pt-4 text-gray-400 text-sm font-thin">
+        <div className="flex justify-between border-t border-white border-solid pt-4 text-white text-sm font-thin opacity-25">
           <div>
             <Link href="/">feg-gossau.ch</Link> - Ein Angebot der Freien
             Evangelischen Gemeinde in Gossau
