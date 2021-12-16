@@ -5,14 +5,6 @@ export default function CoreTheme() {
     undefined
   )
 
-  useEffect(() => {
-    setTheme(localStorage.theme)
-  }, [setTheme])
-
-  useEffect(() => {
-    activateTheme(theme)
-  }, [theme])
-
   const activateTheme = (mode: 'dark' | 'light' | 'system' | undefined) => {
     switch (mode) {
       case 'light':
@@ -50,6 +42,14 @@ export default function CoreTheme() {
       localStorage.setItem('theme', 'light')
     }
   }
+
+  useEffect(() => {
+    setTheme(localStorage.theme)
+  }, [setTheme])
+
+  useEffect(() => {
+    activateTheme(theme)
+  }, [theme])
 
   const button =
     'py-2 px-4 bg-gray-50 dark:bg-black dark:bg-opacity-10 text-black dark:text-white'
