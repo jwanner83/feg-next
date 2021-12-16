@@ -34,11 +34,7 @@ export default function Index({ post, presented }: IndexParams) {
         </div>
       </div>
 
-      <Presented
-        posts={presented}
-        type="predigten"
-        title="Aktuelle Predigten"
-      />
+      <Presented posts={presented} title="Aktuelle Predigten" />
 
       <div className="max-w-2xl mx-auto mt-24">
         <div
