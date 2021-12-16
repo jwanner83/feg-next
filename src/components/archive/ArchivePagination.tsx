@@ -30,14 +30,18 @@ export default function ArchivePagination({
       <div>
         {previousLink && (
           <Link href={previousLink} passHref={true}>
-            <a className="p-5 px-8 text-white bg-black">Vorherige Seite</a>
+            <a className="p-5 px-8 text-white bg-black dark:bg-[#1c1c1c]">
+              Vorherige Seite
+            </a>
           </Link>
         )}
       </div>
       <div>
         {next !== pages + 1 && (
           <Link href={nextLink} passHref={true}>
-            <a className="p-5 px-8 text-white bg-black">Nächste Seite</a>
+            <a className="p-5 px-8 text-white bg-black dark:bg-[#1c1c1c]">
+              Nächste Seite
+            </a>
           </Link>
         )}
       </div>
