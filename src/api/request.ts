@@ -1,4 +1,4 @@
-const host = 'https://feg-gossau.ch/wp-json/'
+const host = process.env.NEXT_PUBLIC_API
 const base = 'wp/v2/'
 
 interface options extends RequestInit {
