@@ -23,6 +23,7 @@ export interface Post {
   excerpt: string
   formattedDate: string
   image: Image
+  type: string
 }
 
 export interface RawPost {
@@ -33,5 +34,6 @@ export interface RawPost {
   link: string
   slug: string
   date: string
+  type: string
   _embedded: _embedded
 }
