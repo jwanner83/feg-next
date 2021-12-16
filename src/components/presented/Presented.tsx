@@ -5,19 +5,17 @@ import PresentedItem from './PresentedItem'
 
 type PresentedParams = {
   posts: Post[]
-  type: string
   title?: string
   amount?: number
 }
 
 export default function Presented({
   posts,
-  type,
   title = 'Vorgestellt',
   amount = 3
 }: PresentedParams) {
   const items = posts.map((post: Post) => {
-    return <PresentedItem key={post.id} item={post} type={type} />
+    return <PresentedItem key={post.id} item={post} />
   })
 
   return (
