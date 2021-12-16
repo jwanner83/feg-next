@@ -4,23 +4,19 @@ import { useEffect, useState } from 'react'
 import PresentedItem from './PresentedItem'
 
 type PresentedParams = {
+  posts: Post[]
   type: string
   title?: string
   amount?: number
 }
 
 export default function Presented({
+  posts,
   type,
   title = 'Vorgestellt',
   amount = 3
 }: PresentedParams) {
-  const [posts, setPosts] = useState<Post[]>()
-
-  useEffect(() => {
-    getPosts({ type, amount }).then(setPosts)
-  }, [amount, type, setPosts])
-
-  const items = posts?.map((post: Post) => {
+  const items = posts.map((post: Post) => {
     return <PresentedItem key={post.id} item={post} type={type} />
   })
 

@@ -1,4 +1,4 @@
-import { getPost } from '@/api/endpoints/post/post'
+import { getPost, getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
 import Presented from '@/components/presented/Presented'
 import Head from 'next/head'
@@ -6,9 +6,10 @@ import Image from 'next/image'
 
 type IndexParams = {
   post: Post
+  presented: Post[]
 }
 
-export default function Index({ post }: IndexParams) {
+export default function Index({ post, presented }: IndexParams) {
   return (
     <>
       <Head>
@@ -33,7 +34,11 @@ export default function Index({ post }: IndexParams) {
         </div>
       </div>
 
-      <Presented type="predigten" title="Aktuelle Predigten" />
+      <Presented
+        posts={presented}
+        type="predigten"
+        title="Aktuelle Predigten"
+      />
 
       <div className="max-w-2xl mx-auto mt-24">
         <div
@@ -47,10 +52,12 @@ export default function Index({ post }: IndexParams) {
 
 export async function getStaticProps() {
   const post = await getPost({ type: 'pages', slug: 'Willkommen' })
+  const presented = await getPosts({ type: 'predigten', amount: 3 })
 
   return {
     props: {
-      post
+      post,
+      presented
     },
     revalidate: 10
   }
