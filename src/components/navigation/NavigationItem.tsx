@@ -8,7 +8,7 @@ type NavigationItemParams = {
 export function NavigationItem({ item }: NavigationItemParams) {
   return (
     <Link href={`/${item.slug}`} passHref={true}>
-      <a className="dark:text-white">{item.title}</a>
+      <a className="font-bold dark:text-white">{item.title}</a>
     </Link>
   )
 }
