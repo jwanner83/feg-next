@@ -27,7 +27,9 @@ export default function Presented({
         </h2>
       </div>
 
-      <div className="grid grid-cols-3 gap-8">{items}</div>
+      <div className="w-full flex gap-6 snap-x snap-mandatory overflow-x-auto pb-8 md:grid md:grid-cols-3">
+        {items}
+      </div>
     </div>
   )
 }
