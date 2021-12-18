@@ -42,7 +42,16 @@ module.exports = {
       },
       gradientColorStops: (theme) => ({
         'black-transparent': '#000000d6'
-      })
+      }),
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 }
+        }
+      },
+      animation: {
+        'fade-in': 'fade-in 0.4s'
+      }
     },
     minHeight: {
       post: '60vh'

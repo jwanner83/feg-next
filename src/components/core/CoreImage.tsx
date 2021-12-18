@@ -28,8 +28,8 @@ export function CoreImage({
       )}
       <Image
         priority
-        className={imageClassNames}
         src={image}
+        className={`${imageClassNames} animate-fade-in`}
         layout="fill"
         alt={title}
       />
