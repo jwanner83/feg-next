@@ -2,6 +2,7 @@ import { Post } from '@/api/endpoints/post/post.types'
 import Link from 'next/link'
 import Image from 'next/image'
 import { BlurhashCanvas } from 'react-blurhash'
+import { CoreImage } from '../core/CoreImage'
 
 type PresentedItemParams = {
   item: Post
@@ -9,7 +10,7 @@ type PresentedItemParams = {
 
 export default function PresentedItem({ item }: PresentedItemParams) {
   return (
-    <Link href={`${item.type}/${item.slug}`} passHref>
+    <Link href={`/${item.type}/${item.slug}`} passHref>
       <a className="bg-gray-100 h-56 relative">
         <div className="absolute h-full w-full top-0 z-10 flex flex-col justify-end bg-gradient-to-tr from-black to-transparent px-8 py-6">
           <div>
@@ -22,20 +23,10 @@ export default function PresentedItem({ item }: PresentedItemParams) {
         </div>
 
         <div className="absolute h-full w-full top-0">
-          {item.image?.placeholder && (
-            <BlurhashCanvas
-              hash={item.image.placeholder.hash}
-              width={item.image.placeholder.height}
-              height={item.image.placeholder.width}
-              punch={1}
-              className="absolute inset-0 w-full h-full"
-            />
-          )}
-          <Image
-            src={item.image.thumbnail}
-            alt={item.title}
-            layout="fill"
-            className="object-cover"
+          <CoreImage
+            image={item.image.thumbnail}
+            title={item.title}
+            placeholder={item.image.placeholder}
           />
         </div>
       </a>

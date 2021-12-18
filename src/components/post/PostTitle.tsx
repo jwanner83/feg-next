@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { IGetBlurhashReturn } from 'plaiceholder/dist/blurhash'
 import { createElement, useState } from 'react'
 import { BlurhashCanvas } from 'react-blurhash'
+import { CoreImage } from '../core/CoreImage'
 
 type PostTitleParams = {
   title: string
@@ -32,20 +33,7 @@ export default function PostTitle({
       </div>
       {image && (
         <div className="min-h-post bg-gray-100 relative md:mb-32">
-          <BlurhashCanvas
-            hash={placeholder.hash}
-            width={placeholder.height}
-            height={placeholder.width}
-            punch={1}
-            className="absolute inset-0 w-full h-full"
-          />
-          <Image
-            priority
-            className="object-cover"
-            src={image}
-            layout="fill"
-            alt={title}
-          />
+          <CoreImage image={image} title={title} placeholder={placeholder} />
         </div>
       )}
     </div>

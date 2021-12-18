@@ -12,14 +12,22 @@ class ImageService {
       }
 
       if (image.large || image.thumbnail) {
-        const { blurhash } = await getPlaiceholder(
-          image.large || image.thumbnail,
-          {
-            size: 32
-          }
-        )
+        try {
+          const { blurhash } = await getPlaiceholder(
+            image.large || image.thumbnail,
+            {
+              size: 32
+            }
+          )
 
-        image.placeholder = blurhash
+          image.placeholder = blurhash
+        } catch (error) {
+          console.error(
+            'ImageService:getImage - failed to get placeholder',
+            `image: ${image.large || image.thumbnail}`,
+            `message: ${error.message}`
+          )
+        }
       }
 
       return image
