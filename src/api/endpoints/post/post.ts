@@ -34,7 +34,13 @@ export async function getPosts({
   })
 
   if (data && data.length > 0) {
-    return data.map((post) => postService.getPost(post))
+    const posts = []
+
+    for (const post of data) {
+      posts.push(await postService.getPost(post))
+    }
+
+    return posts
   }
 
   return null

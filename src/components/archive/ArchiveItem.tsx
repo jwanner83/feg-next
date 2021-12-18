@@ -1,6 +1,7 @@
 import { Post } from '@/api/endpoints/post/post.types'
 import Image from 'next/image'
 import Link from 'next/link'
+import { BlurhashCanvas } from 'react-blurhash'
 
 type ArchiveItemParams = {
   item: Post
@@ -14,12 +15,23 @@ export default function ArchiveItem({ item, base }: ArchiveItemParams) {
         <div className="grid md:grid-cols-archive grid-cols-1 md:gap-10 gap-6">
           <div className="bg-gray-100 h-72 relative">
             {item.image?.thumbnail && (
-              <Image
-                src={item.image.thumbnail}
-                alt={item.title}
-                layout="fill"
-                className="object-cover"
-              />
+              <>
+                {item.image?.placeholder && (
+                  <BlurhashCanvas
+                    hash={item.image.placeholder.hash}
+                    width={item.image.placeholder.height}
+                    height={item.image.placeholder.width}
+                    punch={1}
+                    className="absolute inset-0 w-full h-full"
+                  />
+                )}
+                <Image
+                  src={item.image.thumbnail}
+                  alt={item.title}
+                  layout="fill"
+                  className="object-cover"
+                />
+              </>
             )}
           </div>
           <div className="flex justify-center flex-col">

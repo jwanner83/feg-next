@@ -1,12 +1,27 @@
 import Image from 'next/image'
+import { IGetBlurhashReturn } from 'plaiceholder/dist/blurhash'
+import { createElement, useState } from 'react'
+import { BlurhashCanvas } from 'react-blurhash'
 
 type PostTitleParams = {
   title: string
   image: string
   date: string
+  placeholder?: IGetBlurhashReturn
 }
 
-export default function PostTitle({ title, date, image }: PostTitleParams) {
+export default function PostTitle({
+  title,
+  date,
+  image,
+  placeholder
+}: PostTitleParams) {
+  const [isReady, setIsReady] = useState(false)
+
+  const onLoadCallBack = (e) => {
+    setIsReady(true)
+  }
+
   return (
     <div className="flex flex-col-reverse md:flex-col mb-6 md:mb-0">
       <div className="flex flex-col justify-center md:items-center my-8 md:my-32">
@@ -17,6 +32,13 @@ export default function PostTitle({ title, date, image }: PostTitleParams) {
       </div>
       {image && (
         <div className="min-h-post bg-gray-100 relative md:mb-32">
+          <BlurhashCanvas
+            hash={placeholder.hash}
+            width={placeholder.height}
+            height={placeholder.width}
+            punch={1}
+            className="absolute inset-0 w-full h-full"
+          />
           <Image
             priority
             className="object-cover"

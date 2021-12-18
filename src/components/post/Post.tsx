@@ -13,6 +13,7 @@ export default function PostComponent({ post }: PostComponentParams) {
       <PostTitle
         title={post?.title}
         image={post?.image?.large}
+        placeholder={post?.image?.placeholder}
         date={post?.formattedDate}
       />
       <PostContent post={post} />

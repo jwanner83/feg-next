@@ -1,6 +1,7 @@
 import { Post } from '@/api/endpoints/post/post.types'
 import Link from 'next/link'
 import Image from 'next/image'
+import { BlurhashCanvas } from 'react-blurhash'
 
 type PresentedItemParams = {
   item: Post
@@ -21,6 +22,15 @@ export default function PresentedItem({ item }: PresentedItemParams) {
         </div>
 
         <div className="absolute h-full w-full top-0">
+          {item.image?.placeholder && (
+            <BlurhashCanvas
+              hash={item.image.placeholder.hash}
+              width={item.image.placeholder.height}
+              height={item.image.placeholder.width}
+              punch={1}
+              className="absolute inset-0 w-full h-full"
+            />
+          )}
           <Image
             src={item.image.thumbnail}
             alt={item.title}

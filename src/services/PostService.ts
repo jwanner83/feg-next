@@ -3,7 +3,7 @@ import { dateService } from './DateService'
 import { imageService } from './ImageService'
 
 class PostService {
-  getPost(raw: RawPost): Post {
+  async getPost(raw: RawPost): Promise<Post> {
     return {
       id: raw.id,
       slug: raw.slug,
@@ -11,7 +11,7 @@ class PostService {
       content: raw.content.rendered,
       excerpt: raw.excerpt.rendered,
       formattedDate: dateService.getFormattedDate(new Date(raw.date)),
-      image: imageService.getImage(raw._embedded) || null,
+      image: (await imageService.getImage(raw._embedded)) || null,
       type: raw.type
     }
   }

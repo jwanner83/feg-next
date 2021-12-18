@@ -3,6 +3,7 @@ import { Post } from '@/api/endpoints/post/post.types'
 import Presented from '@/components/presented/Presented'
 import Head from 'next/head'
 import Image from 'next/image'
+import { BlurhashCanvas } from 'react-blurhash'
 
 type IndexParams = {
   post: Post
@@ -25,6 +26,15 @@ export default function Index({ post, presented }: IndexParams) {
         </h1>
 
         <div className="absolute h-index w-full z-0 md:z-10 md:h-index-image md:w-3/5 md:right-0">
+          {post.image?.placeholder && (
+            <BlurhashCanvas
+              hash={post.image.placeholder.hash}
+              width={post.image.placeholder.height}
+              height={post.image.placeholder.width}
+              punch={1}
+              className="absolute inset-0 w-full h-full"
+            />
+          )}
           <Image
             className="object-cover"
             src={post.image.large}
