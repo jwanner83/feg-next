@@ -2,7 +2,7 @@ import { Post } from '@/api/endpoints/post/post.types'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BlurhashCanvas } from 'react-blurhash'
-import { CoreImage } from '../core/CoreImage'
+import { CoreImage } from '@/components/core/CoreImage'
 
 type ArchiveItemParams = {
   item: Post

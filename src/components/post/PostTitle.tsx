@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { IGetBlurhashReturn } from 'plaiceholder/dist/blurhash'
 import { createElement, useState } from 'react'
 import { BlurhashCanvas } from 'react-blurhash'
-import { CoreImage } from '../core/CoreImage'
+import { CoreImage } from '@/components/core/CoreImage'
 
 type PostTitleParams = {
   title: string
