@@ -1,8 +1,9 @@
 import { getPost, getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
+import CoreImage from '@/components/core/CoreImage'
+import Information from '@/components/information/Information'
 import Presented from '@/components/presented/Presented'
 import Head from 'next/head'
-import CoreImage from '@/components/core/CoreImage'
 
 type IndexParams = {
   post: Post
@@ -33,9 +34,18 @@ export default function Index({ post, presented }: IndexParams) {
         </div>
       </div>
 
+      <Information title="Informationen für den Gottesdienst" type="neutral">
+        <p>
+          Unsere Gottesdienste können ohne Zertifikat besucht werden. Wir führen
+          Anwesenheitslisten und übertragen den Gottesdienst via Livestream in
+          einen zweiten Raum, wenn der Hauptsaal mit den erlaubten 50 Besuchern
+          gefüllt ist. Bei uns sind alle herzlich willkommen!
+        </p>
+      </Information>
+
       <Presented posts={presented} title="Aktuelle Predigten" />
 
-      <div className="max-w-2xl mx-auto mt-24">
+      <div className="max-w-2xl mx-auto md:mt-12 mt-4">
         <div
           className="content dark:text-white"
           dangerouslySetInnerHTML={{ __html: post.content }}

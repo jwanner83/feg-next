@@ -1,6 +1,4 @@
-import { getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
-import { useEffect, useState } from 'react'
 import PresentedItem from './PresentedItem'
 
 type PresentedParams = {
@@ -19,10 +17,10 @@ export default function Presented({
   })
 
   return (
-    <div className="mt-16 mb-24">
-      <div className="flex justify-center relative mb-6">
+    <div className="mt-16 mb-12">
+      <div className="flex justify-center relative md:mb-6 mb-0">
         <div className="border-b border-solid border-black w-full absolute dark:border-white"></div>
-        <h2 className="text-center text-3xl font-bold -mt-7 mb-8 bg-white relative px-10 dark:text-white dark:bg-dark">
+        <h2 className="text-center text-3xl font-bold -mt-12 md:-mt-7 mb-8 mx-24 md:ml-0 bg-white relative px-10 dark:text-white dark:bg-dark">
           {title}
         </h2>
       </div>
