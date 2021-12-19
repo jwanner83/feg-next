@@ -12,7 +12,7 @@ export interface getPostsParams {
 
 export interface getPostParams {
   type: string
-  slug: string
+  slug: string | string[]
 }
 
 export interface Post {
@@ -21,6 +21,7 @@ export interface Post {
   title: string
   content: string
   excerpt: string
+  timestamp: number
   formattedDate: string
   image: Image
   type: string

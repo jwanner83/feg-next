@@ -10,6 +10,7 @@ class PostService {
       title: raw.title.rendered,
       content: raw.content.rendered,
       excerpt: raw.excerpt.rendered,
+      timestamp: new Date(raw.date).getTime(),
       formattedDate: dateService.getFormattedDate(new Date(raw.date)),
       image: (await imageService.getImage(raw._embedded)) || null,
       type: raw.type

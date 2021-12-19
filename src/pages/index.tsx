@@ -51,7 +51,7 @@ export default function Index({ post, presented }: IndexParams) {
         </a>
       </Information>
 
-      <Presented posts={presented} title="Aktuelle Predigten" />
+      <Presented posts={presented} title="Schnellzugriff" />
 
       <div className="max-w-2xl mx-auto md:mt-12 mt-4">
         <div
@@ -65,7 +65,8 @@ export default function Index({ post, presented }: IndexParams) {
 
 export async function getStaticProps() {
   const post = await getPost({ type: 'pages', slug: 'Willkommen' })
-  const presented = await getPosts({ type: 'predigten', amount: 3 })
+
+  const presented = await getPresented()
 
   return {
     props: {
@@ -74,4 +75,36 @@ export async function getStaticProps() {
     },
     revalidate: 10
   }
+}
+
+async function getPresented(): Promise<Post[]> {
+  const presented = []
+
+  const latestSermon = await getPosts({ type: 'predigten', amount: 1 })
+  const latestNews = await getPosts({ type: 'news', amount: 1 })
+
+  if (latestNews?.[0]) {
+    if (latestSermon[0]?.timestamp > latestNews[0]?.timestamp) {
+      presented.push(latestSermon[0])
+    } else {
+      presented.push(latestNews[0])
+    }
+  } else {
+    presented.push(latestSermon[0])
+  }
+
+  const jungschar = await getPost({
+    type: 'pages',
+    slug: ['treffpunkte', 'jungschar']
+  })
+  if (jungschar) {
+    presented.push(jungschar)
+  }
+
+  const contact = await getPost({ type: 'pages', slug: ['ueber', 'kontakt'] })
+  if (contact) {
+    presented.push(contact)
+  }
+
+  return presented
 }

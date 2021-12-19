@@ -24,7 +24,7 @@ export async function getPosts({
   type,
   amount = 10,
   page = 1
-}: getPostsParams) {
+}: getPostsParams): Promise<Post[] | null> {
   const { data } = await request<RawPost[]>(type.toLowerCase(), {
     params: {
       _embed: '',
@@ -50,7 +50,7 @@ export async function getPost({ type, slug }: getPostParams): Promise<Post> {
   const { data } = await request<RawPost[]>(type.toLowerCase(), {
     params: {
       _embed: '',
-      slug
+      slug: slug.toString()
     }
   })
 

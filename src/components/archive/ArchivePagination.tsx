@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Button from '@/components/core/basic/Button'
+import Link from 'next/link'
 
 type ArchivePaginationParams = {
   type: string
