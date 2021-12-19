@@ -1,9 +1,7 @@
-import { IGetBlurhashReturn } from 'plaiceholder/dist/blurhash'
-
 export interface Image {
   thumbnail: string
   large: string
-  placeholder?: IGetBlurhashReturn
+  placeholder?: string
 }
 
 export interface _embedded {

@@ -13,14 +13,14 @@ class ImageService {
 
       if (image.large || image.thumbnail) {
         try {
-          const { blurhash } = await getPlaiceholder(
+          const { base64 } = await getPlaiceholder(
             image.large || image.thumbnail,
             {
-              size: 32
+              size: 10
             }
           )
 
-          image.placeholder = blurhash
+          image.placeholder = base64
         } catch (error) {
           console.error(
             'ImageService:getImage - failed to get placeholder',
