@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Button from '../core/basic/Button'
 
 type ArchivePaginationParams = {
   type: string
@@ -30,17 +31,19 @@ export default function ArchivePagination({
       <div>
         {previousLink && (
           <Link href={previousLink} passHref={true}>
-            <a className="p-5 px-8 text-white bg-black dark:bg-[#1c1c1c]">
-              Vorherige Seite
-            </a>
+           <Button>
+                Vorherige Seite
+              </Button>
           </Link>
         )}
       </div>
       <div>
         {next !== pages + 1 && (
           <Link href={nextLink} passHref={true}>
-            <a className="p-5 px-8 text-white bg-black dark:bg-[#1c1c1c]">
-              Nächste Seite
+            <a>
+              <Button>
+                Nächste Seite
+              </Button>
             </a>
           </Link>
         )}
