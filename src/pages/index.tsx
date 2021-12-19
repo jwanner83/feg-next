@@ -1,5 +1,6 @@
 import { getPost, getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
+import Button from '@/components/core/basic/Button'
 import CoreImage from '@/components/core/CoreImage'
 import Information from '@/components/information/Information'
 import Presented from '@/components/presented/Presented'
@@ -41,6 +42,11 @@ export default function Index({ post, presented }: IndexParams) {
           einen zweiten Raum, wenn der Hauptsaal mit den erlaubten 50 Besuchern
           gefüllt ist. Bei uns sind alle herzlich willkommen!
         </p>
+        <a href="https://feg-gossau.ch/wp-content/uploads/2021/09/Schutzkonzept-Gottesdienste-ab-13.09.2021.pdf" target="_blank" rel="noreferrer">
+        <Button className="mt-4">
+          Schutzkonzept
+        </Button>
+        </a>
       </Information>
 
       <Presented posts={presented} title="Aktuelle Predigten" />
