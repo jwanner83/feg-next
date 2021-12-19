@@ -1,10 +1,8 @@
 import { getPost, getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
-import { CoreImage } from '@/components/core/CoreImage'
 import Presented from '@/components/presented/Presented'
 import Head from 'next/head'
-import Image from 'next/image'
-import { BlurhashCanvas } from 'react-blurhash'
+import CoreImage from '@/components/core/CoreImage'
 
 type IndexParams = {
   post: Post
@@ -22,7 +20,7 @@ export default function Index({ post, presented }: IndexParams) {
         <h1 className="font-bold text-huge absolute -ml-12 z-10 opacity-30 text-black dark:text-black md:text-gray-200 md:dark:text-[#7b7b7b]">
           {post.title}
         </h1>
-        <h1 className="font-bold text-5xl relative mt-3 z-10 ml-6 text-white md:text-black md:dark:text-white">
+        <h1 className="font-bold sm:text-5xl text-4xl relative mt-3 z-10 ml-6 text-white md:text-black md:dark:text-white">
           {post.title}
         </h1>
 
