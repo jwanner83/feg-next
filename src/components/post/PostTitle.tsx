@@ -22,7 +22,7 @@ export default function PostTitle({
         <p className="italic mt-4 text-gray-800 dark:text-gray-300">{date}</p>
       </div>
       {image && (
-        <div className="min-h-post bg-gray-100 relative md:mb-32">
+        <div className="min-h-post bg-transparent relative md:mb-32">
           <CoreImage image={image} title={title} placeholder={placeholder} />
         </div>
       )}

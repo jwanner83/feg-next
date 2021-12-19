@@ -12,7 +12,7 @@ export default function ArchiveItem({ item, base }: ArchiveItemParams) {
     <Link href={`/${base}/${encodeURIComponent(item.slug)}`} passHref={true}>
       <a>
         <div className="grid md:grid-cols-archive grid-cols-1 md:gap-10 gap-6">
-          <div className="bg-gray-100 h-72 relative">
+          <div className="bg-transparent h-72 relative">
             {item.image?.thumbnail && (
               <CoreImage
                 image={item.image.thumbnail}
