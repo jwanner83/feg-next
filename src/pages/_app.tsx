@@ -1,13 +1,12 @@
-import 'tailwindcss/tailwind.css'
-import '@/styles/content.scss'
-import '@/styles/post.scss'
-
-import { useEffect, useState } from 'react'
-import LogRocket from 'logrocket'
-import setupLogRocketReact from 'logrocket-react'
-import CoreLayout from '@/components/core/CoreLayout'
 import { getMenu } from '@/api/endpoints/menu/menu'
 import { Menu } from '@/api/endpoints/menu/menu.types'
+import CoreLayout from '@/components/core/CoreLayout'
+import '@/styles/content.scss'
+import '@/styles/post.scss'
+import LogRocket from 'logrocket'
+import setupLogRocketReact from 'logrocket-react'
+import { useEffect, useState } from 'react'
+import 'tailwindcss/tailwind.css'
 
 export default function App({ Component, pageProps }) {
   const [menus, setMenus] = useState(null as null | Menu[])

@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import { Html, Head, Main, NextScript } from 'next/document'
-import { useEffect } from 'react'
+import { Head, Html, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (

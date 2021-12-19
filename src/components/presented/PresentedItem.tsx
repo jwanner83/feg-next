@@ -1,6 +1,6 @@
 import { Post } from '@/api/endpoints/post/post.types'
-import Link from 'next/link'
 import CoreImage from '@/components/core/CoreImage'
+import Link from 'next/link'
 
 type PresentedItemParams = {
   item: Post

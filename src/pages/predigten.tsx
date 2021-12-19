@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Archive from '@/components/archive/Archive'
 import { getPostCount, getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
+import Archive from '@/components/archive/Archive'
+import Head from 'next/head'
 
 const type = 'Predigten'
 

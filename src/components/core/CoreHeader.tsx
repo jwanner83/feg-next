@@ -1,8 +1,7 @@
-import { getMenu } from '@/api/endpoints/menu/menu'
 import { Menu } from '@/api/endpoints/menu/menu.types'
+import { NavigationItem } from '@/components/navigation/NavigationItem'
 import Image from 'next/image'
 import Link from 'next/link'
-import { NavigationItem } from '@/components/navigation/NavigationItem'
 
 type CoreHeaderParams = {
   menus?: Menu[] | null
