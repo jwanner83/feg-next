@@ -38,7 +38,10 @@ module.exports = {
         'index-image': '60vh'
       },
       colors: {
-        dark: '#171717'
+        dark: '#171717',
+        'info-warn': '#fff9d5',
+        'info-danger': '#fde5e5',
+        'info-neutral': '#e9f4ff'
       },
       gradientColorStops: (theme) => ({
         'black-transparent': '#000000d6'
