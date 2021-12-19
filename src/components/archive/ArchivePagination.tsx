@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Button from '../core/basic/Button'
+import Button from '@/components/core/basic/Button'
 
 type ArchivePaginationParams = {
   type: string
@@ -31,9 +31,7 @@ export default function ArchivePagination({
       <div>
         {previousLink && (
           <Link href={previousLink} passHref={true}>
-           <Button>
-                Vorherige Seite
-              </Button>
+            <Button>Vorherige Seite</Button>
           </Link>
         )}
       </div>
@@ -41,9 +39,7 @@ export default function ArchivePagination({
         {next !== pages + 1 && (
           <Link href={nextLink} passHref={true}>
             <a>
-              <Button>
-                Nächste Seite
-              </Button>
+              <Button>Nächste Seite</Button>
             </a>
           </Link>
         )}
