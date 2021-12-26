@@ -1,5 +1,6 @@
 import { getPost, getPosts } from '@/api/endpoints/post/post'
 import { Post } from '@/api/endpoints/post/post.types'
+import Badge from '@/components/badge/Badge'
 import Button from '@/components/core/basic/Button'
 import CoreImage from '@/components/core/CoreImage'
 import Information from '@/components/information/Information'
@@ -15,7 +16,7 @@ export default function Index({ post, presented }: IndexParams) {
   return (
     <>
       <Head>
-        <title>FEG Gossau - Die Freie Evangelische Gemeinde in Gossau</title>
+        <title>TEST FEG Gossau - Die Freie Evangelische Gemeinde in Gossau</title>
       </Head>
 
       <div className="h-index flex items-center relative md:static">
