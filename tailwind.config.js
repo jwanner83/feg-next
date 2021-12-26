@@ -67,6 +67,7 @@ module.exports = {
         h2: { fontSize: theme('fontSize.2xl'), fontFamily: 'Playfair Display' },
         h3: { fontSize: theme('fontSize.lg'), fontFamily: 'Playfair Display' }
       })
-    })
+    }),
+    require('@tailwindcss/line-clamp')
   ]
 }

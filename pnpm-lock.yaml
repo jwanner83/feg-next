@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@plaiceholder/next': ^2.2.0
+  '@tailwindcss/line-clamp': ^0.3.0
   '@types/react': ^17.0.34
   autoprefixer: 10.2.6
   eslint: 7.30.0
@@ -23,6 +24,7 @@ specifiers:
   typescript: 4.5.4
 
 dependencies:
+  '@tailwindcss/line-clamp': 0.3.0_tailwindcss@3.0.5
   logrocket: 2.1.1
   logrocket-react: 4.0.1_react-dom@17.0.2+react@17.0.2
   next: 12.0.7_0c41f19aae22112e9f1896e888ec7296
@@ -343,6 +345,14 @@ packages:
   /@rushstack/eslint-patch/1.1.0:
     resolution: {integrity: sha512-JLo+Y592QzIE+q7Dl2pMUtt4q8SKYI5jDrZxrozEQxnGVOyYE+GWK9eLkwTaeN9DDctlaRAQ3TBmzZ1qdLE30A==}
     dev: true
+
+  /@tailwindcss/line-clamp/0.3.0_tailwindcss@3.0.5:
+    resolution: {integrity: sha512-ffDDclrqr3sy8cpChCozedDUAN8enxqAiWeH8d4dGQ2hcXlxf51+7KleveFi/n/TxEuRVApoL7hICeDOdYPKpg==}
+    peerDependencies:
+      tailwindcss: '>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1'
+    dependencies:
+      tailwindcss: 3.0.5_72be89de93206f86f2d67dd5290ec14d
+    dev: false
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}

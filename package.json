@@ -6,6 +6,7 @@
     "lint": "prettier --write ./src && next lint --fix"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.3.0",
     "logrocket": "^2.1.1",
     "logrocket-react": "^4.0.1",
     "next": "latest",

@@ -1,4 +1,8 @@
 .content {
+  h1, h2, h3, h4, h5, h6 {
+    @apply mb-4 font-bold;
+  }
+
   p {
     @apply mb-4;
   }
