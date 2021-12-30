@@ -1,14 +1,17 @@
 import { Menu } from '@/api/endpoints/menu/menu.types'
 import CoreImage from '@/components/core/CoreImage'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { NavigationParams } from './navigation.types'
 
 export default function MobileNavigation({ menus }: NavigationParams) {
+  const router = useRouter()
+
   const [state, setState] = useState('')
 
   const navigationItems = menus?.map((menu: Menu) => (
-    <div key={menu.ID} onClick={() => setState('')}>
+    <div key={menu.ID}>
       <Link href={`/${menu.slug}`} passHref={true}>
         <a className="font-bold text-5xl">{menu.title}</a>
       </Link>
@@ -22,6 +25,10 @@ export default function MobileNavigation({ menus }: NavigationParams) {
       document.body.style.overflow = 'auto'
     }
   }, [state])
+
+  useEffect(() => {
+    setState('')
+  },[router.query])
 
   return (
     <div className="flex gap-8 z-40">
