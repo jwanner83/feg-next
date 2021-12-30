@@ -1,7 +1,7 @@
 import { Post } from '@/api/endpoints/post/post.types'
 import CoreImage from '@/components/core/CoreImage'
 import Link from 'next/link'
-import { createElement, ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type PresentedItemParams = {
   item: Post
@@ -27,9 +27,15 @@ export default function PresentedItem({ item }: PresentedItemParams) {
             </div>
           </div>{' '}
           <h2 className="z-2 text-white font-bold">{item.title}</h2>
-            <>
-              {excerpt ? <p className="italic text-gray-100 mt-3 truncate line-clamp-2 whitespace-normal">{excerpt}</p> : <p className="italic text-gray-100 mt-3">Mehr erfahren ...</p>}
-            </>
+          <>
+            {excerpt ? (
+              <p className="italic text-gray-100 mt-3 truncate line-clamp-2 whitespace-normal">
+                {excerpt}
+              </p>
+            ) : (
+              <p className="italic text-gray-100 mt-3">Mehr erfahren ...</p>
+            )}
+          </>
         </div>
 
         <div className="absolute h-full w-full top-0">

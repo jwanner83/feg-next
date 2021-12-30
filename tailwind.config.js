@@ -7,6 +7,14 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+		screens: {
+			xs: '0px',
+			sm: '600px',
+			md: '900px',
+			lg: '1200px',
+			xl: '1920px',
+			max: '1600px'
+		},
     fontFamily: {
       serif: ['Playfair Display', 'serif']
     },
@@ -54,6 +62,9 @@ module.exports = {
       },
       animation: {
         'fade-in': 'fade-in 0.4s'
+      },
+      transitionProperty: {
+        'height': 'height'
       }
     },
     minHeight: {

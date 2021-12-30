@@ -14,14 +14,26 @@ export default function CoreImage({
   imageClassNames = 'object-cover'
 }: CoreImageTypes) {
   return (
-    <Image
-      priority
-      src={image}
-      placeholder="blur"
-      blurDataURL={placeholder}
-      className={`${imageClassNames}`}
-      layout="fill"
-      alt={title}
-    />
+    <>
+      {placeholder ? (
+        <Image
+          priority
+          src={image}
+          placeholder="blur"
+          blurDataURL={placeholder}
+          className={`${imageClassNames}`}
+          layout="fill"
+          alt={title}
+        />
+      ) : (
+        <Image
+          priority
+          src={image}
+          className={`${imageClassNames}`}
+          layout="fill"
+          alt={title}
+        />
+      )}
+    </>
   )
 }
