@@ -1,5 +1,5 @@
 import { request } from '@/api/request'
-import { postService } from '@/services/PostService'
+import { postService } from '@/services/post/PostService'
 import {
   getPostCountParams,
   getPostParams,

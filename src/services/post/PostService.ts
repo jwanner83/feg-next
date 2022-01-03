@@ -1,6 +1,6 @@
 import { Post, RawPost } from '@/api/endpoints/post/post.types'
-import { dateService } from './DateService'
-import { imageService } from './ImageService'
+import { dateService } from '../date/DateService'
+import { imageService } from '../image/ImageService'
 
 class PostService {
   async getPost(raw: RawPost): Promise<Post> {
