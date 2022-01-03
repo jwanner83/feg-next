@@ -1,4 +1,4 @@
-import { Post } from '@/api/endpoints/post/post.types'
+import { Post } from '@/api/static/endpoints/post/post.types'
 import CoreImage from '@/components/core/CoreImage'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'

@@ -1,4 +1,4 @@
-import { Menu } from '@/api/endpoints/menu/menu.types'
+import { Menu } from '@/api/static/endpoints/menu/menu.types'
 import Link from 'next/link'
 import DesktopNavigation from './Navigation/DesktopNavigation'
 import MobileNavigation from './Navigation/MobileNavigation'

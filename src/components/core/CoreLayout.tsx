@@ -1,4 +1,4 @@
-import { Menu } from '@/api/endpoints/menu/menu.types'
+import { Menu } from '@/api/static/endpoints/menu/menu.types'
 import { ReactNode } from 'react'
 import CoreFooter from './CoreFooter'
 import CoreHeader from './CoreHeader'

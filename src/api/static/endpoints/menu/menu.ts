@@ -1,4 +1,4 @@
-import { request } from '@/api/request'
+import { request } from '@/api/static/request'
 import { getMenuParams, Menu, MenuResponse } from './menu.types'
 
 export async function getMenu({

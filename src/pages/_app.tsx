@@ -1,11 +1,17 @@
-import { getMenu } from '@/api/endpoints/menu/menu'
-import { Menu } from '@/api/endpoints/menu/menu.types'
+import { getMenu } from '@/api/static/endpoints/menu/menu'
+import { Menu } from '@/api/static/endpoints/menu/menu.types'
 import CoreLayout from '@/components/core/CoreLayout'
-import '@/styles/import.scss'
 import LogRocket from 'logrocket'
 import setupLogRocketReact from 'logrocket-react'
 import { useEffect, useState } from 'react'
+import dayjs from 'dayjs'
+
+import 'dayjs/locale/de-ch'
+
 import 'tailwindcss/tailwind.css'
+import '@/styles/import.scss'
+
+dayjs.locale('de-ch')
 
 export default function App({ Component, pageProps }) {
   const [menus, setMenus] = useState(null as null | Menu[])

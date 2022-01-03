@@ -1,5 +1,5 @@
-import { getPost, getPosts } from '@/api/endpoints/post/post'
-import { Post } from '@/api/endpoints/post/post.types'
+import { getPost, getPosts } from '@/api/static/endpoints/post/post'
+import { Post } from '@/api/static/endpoints/post/post.types'
 import PostComponent from '@/components/post/Post'
 import Head from 'next/head'
 

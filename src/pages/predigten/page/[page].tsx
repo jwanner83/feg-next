@@ -1,5 +1,5 @@
-import { getPostCount, getPosts } from '@/api/endpoints/post/post'
-import { Post } from '@/api/endpoints/post/post.types'
+import { getPostCount, getPosts } from '@/api/static/endpoints/post/post'
+import { Post } from '@/api/static/endpoints/post/post.types'
 import Archive from '@/components/archive/Archive'
 import Head from 'next/head'
 

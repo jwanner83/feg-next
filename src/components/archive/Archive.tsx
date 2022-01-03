@@ -1,4 +1,4 @@
-import { Post } from '@/api/endpoints/post/post.types'
+import { Post } from '@/api/static/endpoints/post/post.types'
 import ArchiveItem from './ArchiveItem'
 import ArchivePagination from './ArchivePagination'
 import ArchiveTitle from './ArchiveTitle'

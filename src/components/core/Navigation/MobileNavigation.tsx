@@ -1,4 +1,4 @@
-import { Menu } from '@/api/endpoints/menu/menu.types'
+import { Menu } from '@/api/static/endpoints/menu/menu.types'
 import CoreImage from '@/components/core/CoreImage'
 import Link from 'next/link'
 import { useRouter } from 'next/router'

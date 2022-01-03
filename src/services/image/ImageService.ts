@@ -1,4 +1,4 @@
-import { Image, _embedded } from '@/api/endpoints/basic.types'
+import { Image, _embedded } from '@/api/static/endpoints/basic.types'
 import { getPlaiceholder } from 'plaiceholder'
 
 class ImageService {
