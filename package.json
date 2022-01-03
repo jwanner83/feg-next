@@ -7,15 +7,19 @@
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.3.0",
+    "dayjs": "^1.10.7",
     "logrocket": "^2.1.1",
     "logrocket-react": "^4.0.1",
     "next": "latest",
     "plaiceholder": "^2.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sharp": "0.29.3"
+    "react-loading-skeleton": "^3.0.2",
+    "sharp": "0.29.3",
+    "swr": "^1.1.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.7",
     "@plaiceholder/next": "^2.2.0",
     "@types/react": "^17.0.34",
     "autoprefixer": "10.2.6",
