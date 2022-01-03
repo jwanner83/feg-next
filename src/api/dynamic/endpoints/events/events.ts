@@ -4,7 +4,7 @@ import { fetcher } from "../../request"
 
 export function useEvents (amount: number = 20) {
     const [now] = useState((new Date()).toISOString())
-    const { data, error } = useSWR(`https://www.googleapis.com/calendar/v3/calendars/6c9kdnu2ejnelnq0qfsus4t7eg@group.calendar.google.com/events?timeMin=${now}&singleEvents=true&orderBy=startTime&maxResults=${amount}&key=AIzaSyB9baVfxJwYjS5CCpok3NVsrJYjn7FmPa4`, fetcher)
+    const { data, error } = useSWR(`https://www.googleapis.com/calendar/v3/calendars/6c9kdnu2ejnelnq0qfsus4t7eg@group.calendar.google.com/events?timeMin=${now}&singleEvents=true&orderBy=startTime&maxResults=${amount}&key=${process.env.NEXT_PUBLIC_GOOGLE_EVENTY_KEY}`, fetcher)
 
     const [events, setEvents] = useState([])
 
