@@ -32,27 +32,27 @@ export default function Index({ post, presented }: IndexParams) {
         <title>FEG Gossau - Die Freie Evangelische Gemeinde in Gossau</title>
       </Head>
 
-      <div className="h-index flex items-center relative md:static">
+      <div className="h-mobile-index flex items-center relative md:static md:h-index">
         <h1 className="font-bold text-huge absolute -ml-12 z-10 opacity-30 text-black dark:text-black md:text-gray-200 md:dark:text-[#7b7b7b]">
           {post.title}
         </h1>
 
-        <div className="mt-3 ml-6 z-50 relative">
+        <div className="mt-3 ml-6 z-20 relative">
           <h1 className="font-bold sm:text-5xl text-4xl relative z-10 text-white md:text-black md:dark:text-white">
             {post.title}
           </h1>
 
-          <>
-            <h2 className="font-bold mb-1">{seremon?.summary || <Skeleton width="190px" />}</h2>
-            <p className="italic mb-4 text-gray-600">
+          <div>
+            <h2 className="font-bold text-white md:text-black mb-1 mt-4">{seremon?.summary || <Skeleton width="190px" />}</h2>
+            <p className="italic mb-4 text-gray-200 md:text-gray-600">
               {seremon ? dayjs(seremon.start.dateTime).format('DD.MM.YYYY, hh:mm') : <Skeleton />}
             </p>
 
             <Button>Anfahrt</Button>
-          </>
+          </div>
         </div>
 
-        <div className="absolute h-index w-full z-0 md:z-10 md:h-index-image md:w-3/5 md:right-0">
+        <div className="absolute h-mobile-index w-full z-0 md:z-10 md:h-index-image md:w-3/5 md:right-0">
           <CoreImage
             image={post.image.large}
             title={post.title}

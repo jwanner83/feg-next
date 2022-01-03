@@ -43,7 +43,8 @@ module.exports = {
       },
       height: {
         index: '70vh',
-        'index-image': '60vh'
+        'index-image': '60vh',
+        'mobile-index': '40vh'
       },
       colors: {
         dark: '#171717',
