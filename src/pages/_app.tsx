@@ -10,6 +10,7 @@ import 'dayjs/locale/de-ch'
 
 import 'tailwindcss/tailwind.css'
 import '@/styles/import.scss'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 dayjs.locale('de-ch')
 
