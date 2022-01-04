@@ -9,6 +9,18 @@
     }
   }
 
+  .has-text-align-center {
+    @apply text-center;
+  }
+
+  .wp-block-image {
+    @apply mb-8;
+
+    figcaption {
+      @apply italic opacity-50 mt-1;
+    }
+  }
+
   .wp-block-audio {
     @apply mb-4;
 
@@ -35,10 +47,35 @@
     }
   }
 
+  .wp-block-separator {
+    @apply w-24 mx-auto my-16;
+  }
+
+  .wp-block-columns {
+    @apply flex flex-col sm:flex-row gap-8;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mb-4 font-bold;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
   p,
   figcaption {
     @apply font-light;
     line-height: 28px;
+  }
+
+  a {
+    word-break: break-word;
   }
 }
 
