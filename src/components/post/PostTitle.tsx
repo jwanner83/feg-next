@@ -2,8 +2,8 @@ import CoreImage from '@/components/core/CoreImage'
 
 type PostTitleParams = {
   title: string
-  image: string
-  date: string
+  image?: string
+  date?: string
   placeholder?: string
 }
 
@@ -19,7 +19,9 @@ export default function PostTitle({
         <h1 className="font-bold md:text-5xl text-3xl leading-relaxed md:text-center max-w-2xl dark:text-white">
           {title}
         </h1>
-        <p className="italic mt-4 text-gray-800 dark:text-gray-300">{date}</p>
+        {date && (
+          <p className="italic mt-4 text-gray-800 dark:text-gray-300">{date}</p>
+        )}
       </div>
       {image && (
         <div className="min-h-post bg-transparent relative md:mb-32">

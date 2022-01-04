@@ -6,6 +6,13 @@
     "lint": "prettier --write ./src && next lint --fix"
   },
   "dependencies": {
+    "@fullcalendar/common": "^5.10.1",
+    "@fullcalendar/core": "^5.10.1",
+    "@fullcalendar/daygrid": "^5.10.1",
+    "@fullcalendar/google-calendar": "^5.10.1",
+    "@fullcalendar/list": "^5.10.1",
+    "@fullcalendar/react": "^5.10.1",
+    "@fullcalendar/timegrid": "^5.10.1",
     "@tailwindcss/line-clamp": "^0.3.0",
     "dayjs": "^1.10.7",
     "logrocket": "^2.1.1",
@@ -27,6 +34,7 @@
     "eslint-config-next": "11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import-alias": "^1.2.0",
+    "next-transpile-modules": "^9.0.0",
     "postcss": "8.3.5",
     "prettier": "^2.4.1",
     "prettier-plugin-organize-imports": "^2.3.4",

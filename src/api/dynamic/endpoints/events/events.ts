@@ -1,6 +1,6 @@
+import { fetcher } from '@/api/dynamic/request'
 import { useEffect, useState } from 'react'
 import useSWR from 'swr'
-import { fetcher } from '@/api/dynamic/request'
 
 export function useEvents(amount: number = 20) {
   const [now] = useState(new Date().toISOString())

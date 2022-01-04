@@ -1,8 +1,8 @@
 import { Menu } from '@/api/static/endpoints/menu/menu.types'
+import CoreTheme from '@/components/core/CoreTheme'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import CoreTheme from '@/components/core/CoreTheme'
 import { NavigationParams } from './navigation.types'
 
 export default function MobileNavigation({ menus }: NavigationParams) {
