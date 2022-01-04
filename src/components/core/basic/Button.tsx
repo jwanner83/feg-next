@@ -7,13 +7,20 @@ type ButtonParams = {
   onClick?: () => MouseEventHandler
 }
 
-export default function Button({ children, className, background, onClick }: ButtonParams) {
-  const [backgroundClasses, setBackgroundClasses] = useState('bg-gray-200 hover:bg-black hover:bg-black')
+export default function Button({
+  children,
+  className,
+  background,
+  onClick
+}: ButtonParams) {
+  const [backgroundClasses, setBackgroundClasses] = useState(
+    'bg-gray-200 hover:bg-black hover:bg-black'
+  )
 
   useEffect(() => {
     if (background) {
       setBackgroundClasses(background)
-    }  
+    }
   }, [background])
   return (
     <button

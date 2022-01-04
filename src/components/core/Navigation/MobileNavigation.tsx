@@ -1,9 +1,8 @@
 import { Menu } from '@/api/static/endpoints/menu/menu.types'
-import CoreImage from '@/components/core/CoreImage'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import CoreTheme from '../CoreTheme'
+import CoreTheme from '@/components/core/CoreTheme'
 import { NavigationParams } from './navigation.types'
 
 export default function MobileNavigation({ menus }: NavigationParams) {
@@ -29,7 +28,7 @@ export default function MobileNavigation({ menus }: NavigationParams) {
 
   useEffect(() => {
     setState('')
-  },[router.query])
+  }, [router.query])
 
   return (
     <div className="flex gap-8 z-40">

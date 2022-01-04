@@ -1,19 +1,19 @@
-import { useEvents } from "@/api/dynamic/endpoints/events/events";
+import { useEvents } from '@/api/dynamic/endpoints/events/events'
 
-export function useActiveSeremon () {
-    const { events, isLoading, isError } = useEvents()
+export function useActiveSeremon() {
+  const { events, isLoading, isError } = useEvents()
 
-    let seremon
+  let seremon
 
-    for (const event of events) {
-      if (event.summary.toLowerCase().includes('gottesdienst')) {
-        seremon = event
-      }
+  for (const event of events) {
+    if (event.summary.toLowerCase().includes('gottesdienst')) {
+      seremon = event
     }
+  }
 
-    return {
-      seremon,
-      isLoading,
-      isError
-    }
+  return {
+    seremon,
+    isLoading,
+    isError
+  }
 }

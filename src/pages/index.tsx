@@ -5,14 +5,14 @@ import Button from '@/components/core/basic/Button'
 import CoreImage from '@/components/core/CoreImage'
 import Information from '@/components/information/Information'
 import Presented from '@/components/presented/Presented'
-import Head from 'next/head'
 import dayjs from 'dayjs'
-import Skeleton from 'react-loading-skeleton'
+import Head from 'next/head'
 import Link from 'next/link'
+import Skeleton from 'react-loading-skeleton'
 
 type IndexParams = {
   post: Post
-  presented: Post[],
+  presented: Post[]
   latestSermon: Post
 }
 
@@ -36,19 +36,38 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
           </h1>
 
           <div>
-            <h2 className="font-bold text-white md:text-black md:dark:text-white mb-1 mt-4 text-shadow">{seremon?.summary || <Skeleton width="150px" />}</h2>
+            <h2 className="font-bold text-white md:text-black md:dark:text-white mb-1 mt-4 text-shadow">
+              {seremon?.summary || <Skeleton width="150px" />}
+            </h2>
             <p className="italic mb-8 sm:mb-4 text-gray-200 md:text-gray-600 md:dark:text-gray-200 text-shadow">
-              {seremon ? dayjs(seremon.start.dateTime).format('DD.MM.YYYY, hh:mm') : <Skeleton width="170px" />}
+              {seremon ? (
+                dayjs(seremon.start.dateTime).format('DD.MM.YYYY, hh:mm')
+              ) : (
+                <Skeleton width="170px" />
+              )}
             </p>
 
             <Link href="/kontakt" passHref={true}>
               <a>
-              <Button className="w-full mb-2 sm:mb-0 sm:w-auto sm:mr-3 text-shadow" background="bg-white bg-opacity-20 text-white sm:bg-gray-200 sm:text-black sm:hover:bg-black sm:hover:bg-black sm:hover:text-white">Anfahrt</Button>
+                <Button
+                  className="w-full mb-2 sm:mb-0 sm:w-auto sm:mr-3 text-shadow"
+                  background="bg-white bg-opacity-20 text-white sm:bg-gray-200 sm:text-black sm:hover:bg-black sm:hover:bg-black sm:hover:text-white"
+                >
+                  Anfahrt
+                </Button>
               </a>
             </Link>
-            <Link href={`/${latestSermon.type}/${latestSermon.slug}`} passHref={true}>
+            <Link
+              href={`/${latestSermon.type}/${latestSermon.slug}`}
+              passHref={true}
+            >
               <a>
-              <Button className="w-full sm:w-auto text-shadow" background="bg-white bg-opacity-20 text-white sm:bg-gray-200 sm:text-black sm:hover:bg-black sm:hover:bg-black sm:hover:text-white">Letzte Predigt</Button>
+                <Button
+                  className="w-full sm:w-auto text-shadow"
+                  background="bg-white bg-opacity-20 text-white sm:bg-gray-200 sm:text-black sm:hover:bg-black sm:hover:bg-black sm:hover:text-white"
+                >
+                  Letzte Predigt
+                </Button>
               </a>
             </Link>
           </div>
@@ -108,7 +127,10 @@ export async function getStaticProps() {
   }
 }
 
-async function getPresented(): Promise<{presented: Post[], latestSermon: Post}> {
+async function getPresented(): Promise<{
+  presented: Post[]
+  latestSermon: Post
+}> {
   const presented = []
 
   const latestSermon = await getPosts({ type: 'predigten', amount: 1 })
