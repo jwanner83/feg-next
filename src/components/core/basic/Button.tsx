@@ -14,7 +14,7 @@ export default function Button({
   onClick
 }: ButtonParams) {
   const [backgroundClasses, setBackgroundClasses] = useState(
-    'bg-gray-200 hover:bg-black hover:bg-black'
+    'bg-gray-200 hover:bg-black text-black hover:text-white'
   )
 
   useEffect(() => {
