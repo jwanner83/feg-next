@@ -41,7 +41,7 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
             </h2>
             <p className="italic mb-8 sm:mb-4 text-gray-200 md:text-gray-600 md:dark:text-gray-200 text-shadow">
               {seremon ? (
-                dayjs(seremon.start.dateTime).format('DD. MMMM, hh:mm') + " Uhr"
+                dayjs(seremon.start.dateTime).format('DD. MMMM, hh:mm') + ' Uhr'
               ) : (
                 <Skeleton width="175px" />
               )}

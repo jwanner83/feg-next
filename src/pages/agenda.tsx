@@ -6,7 +6,6 @@ import googleCalendarPlugin from '@fullcalendar/google-calendar'
 import listPlugin from '@fullcalendar/list'
 import Head from 'next/head'
 
-
 type AgendaParams = {
   post: Post
 }
@@ -20,20 +19,20 @@ export default function Agenda({ post }: AgendaParams) {
 
       <PostTitle title="Agenda" />
 
-        <FullCalendar
-          locale="de"
-          plugins={[dayGridPlugin, listPlugin, googleCalendarPlugin]}
-          initialView="dayGridMonth"
-          googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_EVENTY_KEY}
-          events={{
-            googleCalendarId: process.env.NEXT_PUBLIC_GOOGLE_CALENDER_ID
-          }}
-          headerToolbar={{
-            left: 'prev,next',
-            center: 'title',
-            right: 'today dayGridMonth,listWeek'
-          }}
-        />
+      <FullCalendar
+        locale="de"
+        plugins={[dayGridPlugin, listPlugin, googleCalendarPlugin]}
+        initialView="dayGridMonth"
+        googleCalendarApiKey={process.env.NEXT_PUBLIC_GOOGLE_EVENTY_KEY}
+        events={{
+          googleCalendarId: process.env.NEXT_PUBLIC_GOOGLE_CALENDER_ID
+        }}
+        headerToolbar={{
+          left: 'prev,next',
+          center: 'title',
+          right: 'today dayGridMonth,listWeek'
+        }}
+      />
     </>
   )
 }
