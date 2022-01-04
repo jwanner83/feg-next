@@ -6,25 +6,18 @@ import CoreImage from '@/components/core/CoreImage'
 import Information from '@/components/information/Information'
 import Presented from '@/components/presented/Presented'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 import Skeleton from 'react-loading-skeleton'
+import Link from 'next/link'
 
 type IndexParams = {
   post: Post
-  presented: Post[]
+  presented: Post[],
+  latestSermon: Post
 }
 
-export default function Index({ post, presented }: IndexParams) {
+export default function Index({ post, presented, latestSermon }: IndexParams) {
   const { seremon } = useActiveSeremon()
-
-  useEffect(() => {
-    console.log('seremon', seremon)
-
-    if (seremon) {
-      console.log('date', dayjs(seremon.start.dateTime).format('DD.MM.YYYY'))
-    }
-  }, [seremon])
 
   return (
     <>
@@ -33,22 +26,31 @@ export default function Index({ post, presented }: IndexParams) {
       </Head>
 
       <div className="h-mobile-index flex items-center relative md:static md:h-index">
-        <h1 className="font-bold text-huge absolute -ml-12 z-10 opacity-30 text-black dark:text-black md:text-gray-200 md:dark:text-[#7b7b7b]">
+        <h1 className="top-0 -mt-9 sm:mt-3 md:top-auto md:-mt-24 md:opacity-50 font-bold text-huge absolute -ml-12 z-10 opacity-30 text-black dark:text-black md:text-gray-200 md:dark:text-[#7b7b7b]">
           {post.title}
         </h1>
 
-        <div className="mt-3 ml-6 z-20 relative">
-          <h1 className="font-bold sm:text-5xl text-4xl relative z-10 text-white md:text-black md:dark:text-white">
+        <div className="z-20 relative h-full flex flex-col justify-between w-full p-8 sm:p-12 md:p-0 md:mt-3 md:ml-6 md:h-auto">
+          <h1 className="mt-8 sm:mt-14 font-bold sm:text-5xl text-4xl relative z-10 text-white md:text-black md:dark:text-white">
             {post.title}
           </h1>
 
           <div>
-            <h2 className="font-bold text-white md:text-black mb-1 mt-4">{seremon?.summary || <Skeleton width="190px" />}</h2>
-            <p className="italic mb-4 text-gray-200 md:text-gray-600">
-              {seremon ? dayjs(seremon.start.dateTime).format('DD.MM.YYYY, hh:mm') : <Skeleton />}
+            <h2 className="font-bold text-white md:text-black mb-1 mt-4 text-shadow">{seremon?.summary || <Skeleton width="150px" />}</h2>
+            <p className="italic mb-8 sm:mb-4 text-gray-200 md:text-gray-600 text-shadow">
+              {seremon ? dayjs(seremon.start.dateTime).format('DD.MM.YYYY, hh:mm') : <Skeleton width="170px" />}
             </p>
 
-            <Button>Anfahrt</Button>
+            <Link href="/kontakt" passHref={true}>
+              <a>
+              <Button className="w-full mb-2 sm:mb-0 sm:w-auto sm:mr-3 text-shadow" background="bg-white bg-opacity-20 text-white sm:bg-gray-200 sm:text-black sm:hover:bg-black sm:hover:bg-black sm:hover:text-white">Anfahrt</Button>
+              </a>
+            </Link>
+            <Link href={`/${latestSermon.type}/${latestSermon.slug}`} passHref={true}>
+              <a>
+              <Button className="w-full sm:w-auto text-shadow" background="bg-white bg-opacity-20 text-white sm:bg-gray-200 sm:text-black sm:hover:bg-black sm:hover:bg-black sm:hover:text-white">Letzte Predigt</Button>
+              </a>
+            </Link>
           </div>
         </div>
 
@@ -92,18 +94,19 @@ export default function Index({ post, presented }: IndexParams) {
 export async function getStaticProps() {
   const post = await getPost({ type: 'pages', slug: 'Willkommen' })
 
-  const presented = await getPresented()
+  const { presented, latestSermon } = await getPresented()
 
   return {
     props: {
       post,
-      presented
+      presented,
+      latestSermon
     },
     revalidate: 10
   }
 }
 
-async function getPresented(): Promise<Post[]> {
+async function getPresented(): Promise<{presented: Post[], latestSermon: Post}> {
   const presented = []
 
   const latestSermon = await getPosts({ type: 'predigten', amount: 1 })
@@ -132,5 +135,8 @@ async function getPresented(): Promise<Post[]> {
     presented.push(contact)
   }
 
-  return presented
+  return {
+    presented,
+    latestSermon: latestSermon[0]
+  }
 }

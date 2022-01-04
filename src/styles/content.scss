@@ -12,3 +12,11 @@
     @apply mb-4;
   }
 }
+
+.text-shadow {
+  text-shadow: black 0 0 8px;
+
+  @media (min-width: 600px) {
+    text-shadow: none;
+  }
+}
