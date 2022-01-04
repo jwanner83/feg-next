@@ -25,13 +25,13 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
         <title>FEG Gossau - Die Freie Evangelische Gemeinde in Gossau</title>
       </Head>
 
-      <div className="h-mobile-index flex items-center relative md:static md:h-index">
+      <div className="h-mobile-index min-h-[380px] md:min-h-[450px] flex items-center relative md:static md:h-index">
         <h1 className="top-0 -mt-9 sm:mt-3 md:top-auto md:-mt-24 md:opacity-50 font-bold text-huge absolute -ml-12 z-10 opacity-30 text-black dark:text-black md:text-gray-200 md:dark:text-[#7b7b7b]">
           {post.title}
         </h1>
 
         <div className="z-20 relative h-full flex flex-col justify-between w-full p-8 sm:p-12 md:p-0 md:mt-3 md:ml-6 md:h-auto">
-          <h1 className="mt-8 sm:mt-14 font-bold sm:text-5xl text-4xl relative z-10 text-white md:text-black md:dark:text-white">
+          <h1 className="mt-8 sm:mt-14 md:mt-0 font-bold sm:text-5xl text-4xl relative z-10 text-white md:text-black md:dark:text-white">
             {post.title}
           </h1>
 
@@ -54,7 +54,7 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
           </div>
         </div>
 
-        <div className="absolute h-mobile-index w-full z-0 md:z-10 md:h-index-image md:w-3/5 md:right-0">
+        <div className="absolute h-mobile-index min-h-[380px] md:min-h-[450px] w-full z-0 md:z-10 md:h-index-image md:w-3/5 md:right-0">
           <CoreImage
             image={post.image.large}
             title={post.title}
