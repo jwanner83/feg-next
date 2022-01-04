@@ -6,8 +6,6 @@ export default function CoreTheme() {
   )
 
   const activateTheme = (mode: 'dark' | 'light' | 'system' | undefined) => {
-    console.log('mode', mode)
-
     switch (mode) {
       case 'light':
         setLight(true)
@@ -48,7 +46,6 @@ export default function CoreTheme() {
   }
 
   useEffect(() => {
-    console.log('localstorage', localStorage.getItem('theme'))
     activateTheme(
       localStorage.getItem('theme') as 'dark' | 'light' | 'system' | undefined
     )
