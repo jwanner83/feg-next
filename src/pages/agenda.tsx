@@ -20,7 +20,6 @@ export default function Agenda({ post }: AgendaParams) {
 
       <PostTitle title="Agenda" />
 
-      <div id="calendar">
         <FullCalendar
           locale="de"
           plugins={[dayGridPlugin, listPlugin, googleCalendarPlugin]}
@@ -30,11 +29,11 @@ export default function Agenda({ post }: AgendaParams) {
             googleCalendarId: process.env.NEXT_PUBLIC_GOOGLE_CALENDER_ID
           }}
           headerToolbar={{
-            left: 'prev,next,title',
+            left: 'prev,next',
+            center: 'title',
             right: 'today dayGridMonth,listWeek'
           }}
         />
-      </div>
     </>
   )
 }
