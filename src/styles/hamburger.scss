@@ -25,6 +25,18 @@
   background-color: #000;
 }
 
+.dark .hamburger.is-active .hamburger-inner,
+.dark .hamburger.is-active .hamburger-inner::before,
+.dark .hamburger.is-active .hamburger-inner::after {
+  background-color: #fff;
+}
+
+.dark .hamburger-inner,
+.dark .hamburger-inner::before,
+.dark .hamburger-inner::after { 
+  background-color: #fff;
+}
+
 .hamburger-box {
   width: 40px;
   height: 24px;

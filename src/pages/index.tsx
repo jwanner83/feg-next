@@ -26,7 +26,7 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
       </Head>
 
       <div className="h-mobile-index min-h-[380px] md:min-h-[450px] flex items-center relative md:static md:h-index">
-        <h1 className="top-0 -mt-9 sm:mt-3 md:top-auto md:-mt-24 md:opacity-50 font-bold text-huge absolute -ml-12 z-10 opacity-30 text-black dark:text-black md:text-gray-200 md:dark:text-[#7b7b7b]">
+        <h1 className="top-0 -mt-9 sm:mt-3 md:top-auto md:-mt-36 md:opacity-50 font-bold text-huge absolute -ml-12 z-10 opacity-30 text-black dark:text-black md:text-gray-200 md:dark:text-[#7b7b7b]">
           {post.title}
         </h1>
 
@@ -36,8 +36,8 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
           </h1>
 
           <div>
-            <h2 className="font-bold text-white md:text-black mb-1 mt-4 text-shadow">{seremon?.summary || <Skeleton width="150px" />}</h2>
-            <p className="italic mb-8 sm:mb-4 text-gray-200 md:text-gray-600 text-shadow">
+            <h2 className="font-bold text-white md:text-black md:dark:text-white mb-1 mt-4 text-shadow">{seremon?.summary || <Skeleton width="150px" />}</h2>
+            <p className="italic mb-8 sm:mb-4 text-gray-200 md:text-gray-600 md:dark:text-gray-200 text-shadow">
               {seremon ? dayjs(seremon.start.dateTime).format('DD.MM.YYYY, hh:mm') : <Skeleton width="170px" />}
             </p>
 
@@ -55,11 +55,13 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
         </div>
 
         <div className="absolute h-mobile-index min-h-[380px] md:min-h-[450px] w-full z-0 md:z-10 md:h-index-image md:w-3/5 md:right-0">
-          <CoreImage
-            image={post.image.large}
-            title={post.title}
-            placeholder={post.image.placeholder}
-          />
+          <div className="h-full w-full">
+            <CoreImage
+              image={post.image.large}
+              title={post.title}
+              placeholder={post.image.placeholder}
+            />
+          </div>
         </div>
       </div>
 
