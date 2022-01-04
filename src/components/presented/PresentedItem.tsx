@@ -12,13 +12,14 @@ export default function PresentedItem({ item }: PresentedItemParams) {
   const type = isPage ? 'SEITE' : item.type.toUpperCase()
 
   const [excerpt, setExcerpt] = useState('')
+  const [link] = useState(isPage ? item.slug : [item.type, item.slug].join('/'))
 
   useEffect(() => {
     setExcerpt(item.excerpt.replace(/<[^>]+>/g, ''))
   }, [])
 
   return (
-    <Link href={`/${item.type}/${item.slug}`} passHref>
+    <Link href={link} passHref>
       <a className="h-56 w-full sm:w-9/12 md:w-full relative snap-center shrink-0">
         <div className="absolute h-full w-full top-0 z-10 flex flex-col justify-end bg-gradient-to-tr from-black to-transparent px-8 py-7">
           <div>
