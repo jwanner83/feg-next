@@ -6,6 +6,8 @@ export default function CoreTheme() {
   )
 
   const activateTheme = (mode: 'dark' | 'light' | 'system' | undefined) => {
+    console.log('mode', mode)
+
     switch (mode) {
       case 'light':
         setLight(true)
@@ -29,6 +31,7 @@ export default function CoreTheme() {
 
   const setDark = (persist: boolean) => {
     document.documentElement.classList.add('dark')
+    setTheme('dark')
 
     if (persist) {
       localStorage.setItem('theme', 'dark')
@@ -37,6 +40,7 @@ export default function CoreTheme() {
 
   const setLight = (persist: boolean) => {
     document.documentElement.classList.remove('dark')
+    setTheme('light')
 
     if (persist) {
       localStorage.setItem('theme', 'light')
@@ -44,38 +48,15 @@ export default function CoreTheme() {
   }
 
   useEffect(() => {
-    setTheme(localStorage.theme)
-  }, [setTheme])
-
-  useEffect(() => {
-    activateTheme(theme)
-  }, [theme])
-
-  const button =
-    'py-2 px-4 bg-gray-50 dark:bg-black dark:bg-opacity-10 text-black dark:text-white'
-  const buttonActive =
-    'py-2 px-4 bg-transparent font-bold text-black dark:text-white'
+    console.log('localstorage', localStorage.getItem('theme'))
+    activateTheme(localStorage.getItem('theme') as 'dark' | 'light' | 'system' | undefined)
+  }, [])
 
   return (
-    <div className="p-2 bg-[#eee] dark:bg-[#1c1c1c] text-sm">
-      <button
-        className={theme === 'light' ? buttonActive : button}
-        onClick={() => setTheme('light')}
-      >
-        Hell
-      </button>
-      <button
-        className={theme === 'system' ? buttonActive : button}
-        onClick={() => setTheme('system')}
-      >
-        System
-      </button>
-      <button
-        className={theme === 'dark' ? buttonActive : button}
-        onClick={() => setTheme('dark')}
-      >
-        Dunkel
-      </button>
-    </div>
+    <div className='rounded-full bg-gray-200 p-4 h-16 w-16 md:p-2 md:h-8 md:w-8 relative overflow-hidden cursor-pointer' onClick={() => (theme === 'dark' ? setLight(true) : setDark(true))}>
+      <div className='rounded-full bg-black h-full'>
+        <div className={`rounded-full absolute top-0 left-0 h-10 w-10 md:h-5 md:w-5 bg-gray-200 transition-transform ${theme === 'dark' && 'scale-0'}`}></div>
+      </div>
+    </div>    
   )
 }
