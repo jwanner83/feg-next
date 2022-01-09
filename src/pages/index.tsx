@@ -104,7 +104,7 @@ export default function Index({ post, presented, latestSermon }: IndexParams) {
 
       <div className="max-w-2xl mx-auto md:mt-12 mt-4">
         <div
-          className="content dark:text-white"
+          className="content post dark:text-white"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
@@ -156,6 +156,7 @@ async function getPresented(): Promise<{
 
   const contact = await getPost({ type: 'pages', slug: ['ueber', 'kontakt'] })
   if (contact) {
+    contact.excerpt = 'Haben Sie ein Anliegen oder eine Frage? Zögern Sie nicht, mit uns in Kontakt zu treten.'
     presented.push(contact)
   }
 
