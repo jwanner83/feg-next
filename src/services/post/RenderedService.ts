@@ -7,7 +7,7 @@ class RenderedService {
     }
 
     const dom = this.parse(content)
-  
+
     // add class to first paragraph
     const paragraph = dom.window.document.body.querySelector('p')
     paragraph && paragraph.classList.add('first')
@@ -16,7 +16,7 @@ class RenderedService {
   }
 
   private parse(content: string): JSDOM {
-    return new JSDOM(content);
+    return new JSDOM(content)
   }
 }
 

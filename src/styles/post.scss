@@ -33,9 +33,9 @@
 
       @media (max-width: 600px) {
         margin-left: -32px;
-      margin-right: -32px;
+        margin-right: -32px;
       }
-      
+
       img {
         object-fit: cover;
         max-height: 350px;
@@ -118,14 +118,14 @@
     p {
       z-index: 10;
       position: relative;
-      font-family: "Playfair Display";
+      font-family: 'Playfair Display';
       letter-spacing: 0.2px;
       font-size: 20px;
       font-style: italic;
 
       &::before {
         z-index: 1;
-        content: "“";
+        content: '“';
         position: absolute;
         top: 65px;
         left: -140px;

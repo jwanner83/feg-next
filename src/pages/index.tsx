@@ -156,7 +156,8 @@ async function getPresented(): Promise<{
 
   const contact = await getPost({ type: 'pages', slug: ['ueber', 'kontakt'] })
   if (contact) {
-    contact.excerpt = 'Haben Sie ein Anliegen oder eine Frage? Zögern Sie nicht, mit uns in Kontakt zu treten.'
+    contact.excerpt =
+      'Haben Sie ein Anliegen oder eine Frage? Zögern Sie nicht, mit uns in Kontakt zu treten.'
     presented.push(contact)
   }
 
