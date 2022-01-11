@@ -1,9 +1,9 @@
 import { Post } from '@/api/static/endpoints/post/post.types'
 import PostTitle from '@/components/post/PostTitle'
+import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import googleCalendarPlugin from '@fullcalendar/google-calendar'
 import listPlugin from '@fullcalendar/list'
-import FullCalendar from '@fullcalendar/react'
 import Head from 'next/head'
 
 type AgendaParams = {
