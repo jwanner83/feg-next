@@ -1,7 +1,10 @@
 import { getMenu } from '@/api/static/endpoints/menu/menu'
 import { Menu } from '@/api/static/endpoints/menu/menu.types'
-import CoreLayout from '@/components/core/CoreLayout'
+import AdminInterface from '@/components/admin/interface/AdminInterface'
+import CoreLayout from '@/components/content/core/CoreLayout'
+import Logo from '@/components/content/svg/Logo'
 import '@/styles/import.scss'
+import { Box, MantineProvider } from '@mantine/core'
 import dayjs from 'dayjs'
 import 'dayjs/locale/de-ch'
 import LogRocket from 'logrocket'
@@ -31,10 +34,20 @@ export default function App({ Component, pageProps }) {
   fetch()
 
   return (
-    <div className="min-h-screen dark:bg-dark">
-      <CoreLayout menus={menus}>
-        <Component {...pageProps} />
-      </CoreLayout>
-    </div>
+    <MantineProvider>
+      <AdminInterface
+        header={
+          <Box sx={{ height: '40px' }}>
+            <Logo />
+          </Box>
+        }
+      >
+        <div className="min-h-screen dark:bg-dark">
+          <CoreLayout menus={menus}>
+            <Component {...pageProps} />
+          </CoreLayout>
+        </div>
+      </AdminInterface>
+    </MantineProvider>
   )
 }
