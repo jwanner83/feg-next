@@ -1,6 +1,6 @@
 import { Post, RawPost } from '@/api/static/endpoints/post/post.types'
-import { dateService } from '@/services/date/DateService'
-import { imageService } from '@/services/image/ImageService'
+import { dateService } from '@/services/content/date/DateService'
+import { imageService } from '@/services/content/image/ImageService'
 import { renderedService } from './RenderedService'
 
 class PostService {

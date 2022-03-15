@@ -1,5 +1,5 @@
 import { Post } from '@/api/static/endpoints/post/post.types'
-import CoreImage from '@/components/core/CoreImage'
+import CoreImage from '@/components/content/core/CoreImage'
 import Link from 'next/link'
 
 type ArchiveItemParams = {

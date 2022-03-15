@@ -1,6 +1,6 @@
 import { getPost, getPosts } from '@/api/static/endpoints/post/post'
 import { Post } from '@/api/static/endpoints/post/post.types'
-import PostComponent from '@/components/post/Post'
+import PostComponent from '@/components/content/post/Post'
 import Head from 'next/head'
 
 const type = 'Predigten'

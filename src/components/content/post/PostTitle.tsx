@@ -1,4 +1,4 @@
-import CoreImage from '@/components/core/CoreImage'
+import CoreImage from '@/components/content/core/CoreImage'
 
 type PostTitleParams = {
   title: string

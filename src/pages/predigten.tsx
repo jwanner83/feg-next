@@ -1,6 +1,6 @@
 import { getPostCount, getPosts } from '@/api/static/endpoints/post/post'
 import { Post } from '@/api/static/endpoints/post/post.types'
-import Archive from '@/components/archive/Archive'
+import Archive from '@/components/content/archive/Archive'
 import Head from 'next/head'
 
 const type = 'Predigten'

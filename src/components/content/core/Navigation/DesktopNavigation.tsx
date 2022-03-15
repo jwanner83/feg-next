@@ -1,6 +1,6 @@
 import { Menu } from '@/api/static/endpoints/menu/menu.types'
-import CoreTheme from '@/components/core/CoreTheme'
-import { NavigationItem } from '@/components/navigation/NavigationItem'
+import CoreTheme from '@/components/content/core/CoreTheme'
+import { NavigationItem } from '@/components/content/navigation/NavigationItem'
 import { NavigationParams } from './navigation.types'
 
 export default function DesktopNavigation({ menus }: NavigationParams) {

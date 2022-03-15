@@ -1,5 +1,5 @@
 import { Menu } from '@/api/static/endpoints/menu/menu.types'
-import CoreTheme from '@/components/core/CoreTheme'
+import CoreTheme from '@/components/content/core/CoreTheme'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
