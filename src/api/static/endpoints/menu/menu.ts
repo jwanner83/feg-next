@@ -1,5 +1,5 @@
 import { request } from '@/api/static/request'
-import { getMenuParams, Menu, MenuResponse } from './menu.types'
+import { getMenuParams, Menu } from '@/api/static/endpoints/menu/menu.types'
 
 export async function getMenu({
   type = 'default'
@@ -17,21 +17,6 @@ export async function getMenu({
 function createMenuItem(title: string, slug: string): Menu {
   return {
     title,
-    slug,
-    ID: Math.random() * (10000 - 0) + 0
+    slug
   }
-}
-
-async function getMenuThroughRest({
-  type
-}: getMenuParams): Promise<Menu[] | null> {
-  const { data } = await request<MenuResponse>(type.toLowerCase(), {
-    base: 'menus/v1/menus/'
-  })
-
-  if (data?.items?.length > 0) {
-    return data.items
-  }
-
-  return null
 }
