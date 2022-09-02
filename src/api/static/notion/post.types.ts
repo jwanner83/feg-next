@@ -17,16 +17,16 @@ export interface NotionCover {
 
 export interface NotionPageProperties {
   Name: {
-    title: NotionPagePropertyRichText[]
+    title: NotionRichText[]
   }
   Slug: {
-    'rich_text': NotionPagePropertyRichText[]
+    'rich_text': NotionRichText[]
   }
   Speaker?: {
-    'rich_text': NotionPagePropertyRichText[]
+    'rich_text': NotionRichText[]
   }
 }
 
-interface NotionPagePropertyRichText {
+export interface NotionRichText {
   'plain_text': string
 }
