@@ -11,7 +11,7 @@ export default function MobileNavigation({ menus }: NavigationParams) {
   const [state, setState] = useState('')
 
   const navigationItems = menus?.map((menu: Menu) => (
-    <div key={menu.ID}>
+    <div key={menu.slug}>
       <Link href={`/${menu.slug}`} passHref={true}>
         <a className="font-bold text-5xl dark:text-white">{menu.title}</a>
       </Link>

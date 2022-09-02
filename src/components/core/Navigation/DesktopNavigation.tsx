@@ -5,7 +5,7 @@ import { NavigationParams } from './navigation.types'
 
 export default function DesktopNavigation({ menus }: NavigationParams) {
   const navigationItems = menus?.map((menu: Menu) => (
-    <NavigationItem key={menu.ID} item={menu} />
+    <NavigationItem key={menu.title} item={menu} />
   ))
 
   return (
