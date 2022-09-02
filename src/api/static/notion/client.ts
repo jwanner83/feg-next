@@ -2,6 +2,7 @@ import { Client } from '@notionhq/client'
 import { NotionList, NotionPage, NotionPageProperties } from '@/api/static/notion/post.types'
 import { NotionNormalizedPost } from '@/api/static/endpoints/post/normalized.post.types'
 import { notionPostService } from '@/services/post/NotionPostService'
+import { NotionBlockType } from '@/services/notion/types/notion.types'
 
 const notion = new Client({
   auth: process.env.NEXT_PUBLIC_NOTION_CLIENT
@@ -42,5 +43,6 @@ export async function getPage(slug: string) {
 }
 
 export async function getBlocks(id: string) {
-  return await notion.blocks.retrieve({ block_id: id })
+  const list = await notion.blocks.children.list({ block_id: id }) as NotionList<NotionBlockType>
+  return list.results
 }
