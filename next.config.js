@@ -10,6 +10,6 @@ const withTranspilation = require("next-transpile-modules")([
 // next.config.js
 module.exports = withTranspilation({...withPlaiceholder({
   images: {
-    domains: ['secure.gravatar.com', 'test.feg-gossau.ch', 'feg-gossau.ch']
+    domains: ['secure.gravatar.com', 'test.feg-gossau.ch', 'feg-gossau.ch', 'images.unsplash.com']
   }
 })})
