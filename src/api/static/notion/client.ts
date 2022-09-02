@@ -19,8 +19,6 @@ export async function getPages() {
     pages.push(notionPostService.getPost(page))
   }
 
-  console.log('posts', pages)
-
   return pages
 }
 

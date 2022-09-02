@@ -25,9 +25,6 @@ export async function getStaticProps({ params }) {
   const post = await getPage(params.slug)
   const blocks = await getBlocks(post.id)
 
-  console.log('post', post)
-  console.log('blocks', blocks)
-
   return {
     props: {
       post,

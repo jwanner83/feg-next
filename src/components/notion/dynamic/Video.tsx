@@ -1,8 +1,6 @@
 import { DynamicComponentParams } from '@/services/notion/types/component.types'
 
 export default function Video ({ block }: DynamicComponentParams) {
-  console.log('vdieoe', block)
-
   const regex = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
   const match = block.video.external.url.match(regex)
 
