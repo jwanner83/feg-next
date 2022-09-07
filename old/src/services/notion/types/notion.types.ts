@@ -9,7 +9,14 @@ export interface NotionBlockType {
   video?: {
     caption?: NotionRichText[],
     type: 'external' | 'internal',
-    external: {
+    external?: {
+      url: string
+    }
+  },
+  image?: {
+    caption: NotionRichText[],
+    type: 'external' | 'internal',
+    external?: {
       url: string
     }
   }

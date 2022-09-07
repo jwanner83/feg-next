@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "lint": "prettier --write ./src && next lint --fix"
+    "dev": "../node_modules/.bin/next",
+    "build": "../node_modules/.bin/next build",
+    "start": "../node_modules/.bin/next start",
+    "lint": "../node_modules/.bin/prettier --write ./src && next lint --fix"
   },
   "dependencies": {
     "@fullcalendar/common": "^5.10.1",
@@ -35,6 +35,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import-alias": "^1.2.0",
     "next-transpile-modules": "^9.0.0",
+    "notion-client": "^6.13.8",
     "postcss": "8.3.5",
     "prettier": "^2.4.1",
     "prettier-plugin-organize-imports": "^2.3.4",

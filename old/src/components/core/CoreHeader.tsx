@@ -10,7 +10,7 @@ type CoreHeaderParams = {
 export default function CoreHeader({ menus }: CoreHeaderParams) {
   return (
     <div className="flex justify-between items-center w-full mb-8 relative z-40">
-      <Link href="/" passHref={true}>
+      <Link href="/Users/jwa/Development/projects/feg-next/old/src/pages" passHref={true}>
         <a className="h-[64px] z-40">
           <svg
             xmlns="http://www.w3.org/2000/svg"
