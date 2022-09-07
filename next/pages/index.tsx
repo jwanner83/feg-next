@@ -10,7 +10,7 @@ export default function Index({ }: IndexParams) {
         <title>FEG Gossau - Die Freie Evangelische Gemeinde in Gossau</title>
       </Head>
 
-
+      <div className="font-bold">Hello</div>
     </>
   )
 }

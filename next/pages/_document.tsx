@@ -1,12 +1,18 @@
-import { Html, Main, NextScript } from 'next/document'
+import { Html, Main, NextScript, Head } from 'next/document'
 
-export default function Document() {
+export default function Document () {
   return (
-    <Html lang="de">
-      <body className="m-0">
+    <>
+      <Head>
+        <link rel="icon" href="/logo.svg" />
+      </Head>
+
+      <Html lang="de">
+        <body className="m-0">
         <Main />
         <NextScript />
-      </body>
-    </Html>
+        </body>
+      </Html>
+    </>
   )
 }

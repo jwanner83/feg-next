@@ -1,7 +1,4 @@
-import '@/styles/import.scss'
-import { useEffect, useState } from 'react'
-import 'react-loading-skeleton/dist/skeleton.css'
-import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   return (
